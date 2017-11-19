@@ -2,16 +2,28 @@
     .resaltar{
         color: rgb(255,255,250);  
     }
-    
+
     #tsm{height: 1px;
          width: 2px;      }
-    </style>
-    <body class="hold-transition  sidebar-mini">
+    #categoria1:active{
+        color: rgb(0,153,51);
+
+    }
+    .categoria1:hover{
+        background-color:rgb(255,102,51);
+        color: rgb(255,251,255);
+
+    }
+    .text-gray1{
+        color: #cccccc;
+    }
+</style>
+<body class="hold-transition  sidebar-mini">
     <div class="wrapper">
 
         <header class="main-header">
             <!-- Logo -->
-            <a href="<?= base_url() ?>public/index2.html" class="logo">
+            <a href="<?= base_url() ?>Welcome" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini">M</span>
                 <!-- logo for regular state and mobile devices -->
@@ -29,7 +41,7 @@
 
                         <!-- Notifications: style can be found in dropdown.less -->
                         <li class="dropdown notifications-menu">
-                            <a href="<?= base_url() ?>public/#" class="dropdown-toggle" data-toggle="dropdown">
+                            <a href="<?= base_url() ?>#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-bell-o"></i>
                                 <span class="label label-warning"><?= $totalNotificaciones ?></span>
                             </a>
@@ -39,36 +51,36 @@
                                     <!-- inner menu: contains the actual data -->
                                     <ul class="menu">
                                         <li>
-                                            <a href="<?= base_url() ?>#">
+                                            <a href="">
                                                 <i class="fa fa- fa-calendar-times-o text-gray"></i> <span class="label label-default"><?= $vencidos ?></span> productos vencidos
                                             </a>
                                         </li>
 
                                         <li>
-                                            <a href="<?= base_url() ?>#">
+                                            <a href="">
                                                 <i class="fa fa-calendar-minus-o text-info"></i> <span class="label label-info"><?= $porVencerse ?></span> productos por vencerse
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="<?= base_url() ?>#">
+                                            <a href=">
                                                 <i class="fa fa-battery-empty text-red"></i> <span class="label label-danger"><?= $agotados ?></span> productos agotados
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="<?= base_url() ?>#">
+                                            <a href="">
                                                 <i class="fa fa-battery-1 text-orange"></i><span class="label label-warning"><?= $porAgotarse ?></span> productos  por agotarse
                                             </a>
                                         </li>
                                     </ul>
                                 </li>
-                                <li class="footer"><a href="<?= base_url() ?>#"></a></li>
+                                <li class="footer"><a href=""></a></li>
                             </ul>
                         </li>
                         <!-- Tasks: style can be found in dropdown.less -->
 
                         <!-- User Account: style can be found in dropdown.less -->
                         <li class="dropdown user user-menu">
-                            <a href="<?= base_url() ?>public/#" class="dropdown-toggle" data-toggle="dropdown">
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown">
                                 <img src="<?= base_url() ?>public/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
                                 <span class="hidden-xs"><?php echo $perfil->NombreUsuario; ?></span>
                             </a>
@@ -141,7 +153,7 @@
                 <!-- search form -->
                 <form action="#" method="get" class="sidebar-form">
                     <div class="input-group">
-
+               
                         <span class="input-group-btn">
 
                         </span>
@@ -154,15 +166,15 @@
 
                     <li class="treeview">
                         <?php if ($this->session->userdata('rol') == 1): ?>
-                            <a href="<?= base_url() ?>public/#">
-                                <i class="fa fa-briefcase text-orange"></i> <span>Categoría</span>
+                            <a href="">
+                                <i class="fa fa-briefcase text-orange text-gray"></i> <span>Categoría</span>
                                 <span class="pull-right-container">
                                     <i class="fa fa-angle-left pull-right"></i>
                                 </span>
                             </a>
-                            <ul class="treeview-menu skin-green">
+                        <ul class="treeview-menu skin-green" >
 
-                                <li class="active"><a href="<?php echo site_url('categoria/crear'); ?>"><i class="fa fa-plus text-orange"></i> Nueva</a></li>
+                                <li class="active" id="categoria1"><a href="<?php echo site_url('categoria/crear'); ?>"><i class="fa fa-plus text-orange"></i> Nueva</a></li>
                                 <li><a href="<?php echo site_url('categoria'); ?>"><i class="fa fa-search text-orange"></i> Listar</a></li>
 
                             </ul>
@@ -204,7 +216,7 @@
                     </li>
 
                     <li class="treeview">
-                        <a href="<?= base_url() ?>public/#">
+                        <a href="">
                             <i class="fa fa-folder text-orange"></i>
                             <span>Inventario</span>
                             <span class="pull-right-container">

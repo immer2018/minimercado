@@ -12,10 +12,10 @@
 
             <div class="col-md-8">
                 <div class="box box-success">
-                    <div class="box-header with-border">
+                    <div>
                         <div class="avatar"><img src="<?PHP echo base_url(); ?>/public/img/woman-1594711_1920.jpg" class="mx-auto d-block imagencard" alt="img">
                         </div>
-                        <br>
+                        <br><br>
                         <?php if ($this->session->userdata('rol') == 1): ?>
                             <h3 class="box-title resaltar">Perfil Administrador</h3>
                         <?php endif; ?>
@@ -36,35 +36,35 @@
 
                         <input type="hidden" name="idUsuario" value="<?= $this->session->userdata('idUsuario') ?>">
                         <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa fa-users text-green"></i> Rol </span>
-                            <label class=" control-label col-md-2"><?= $mrol->tipoRol ?></label>
+                            <span class="input-group-addon"><i class="fa fa fa-users text-gray1"></i> Rol </span>
+                            <label >   <?= $mrol->tipoRol ?></label>
 
                         </div>
                         <br>
                         <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa fa-user-circle text-green"></i> Usuario</span>
+                            <span class="input-group-addon"><i class="fa fa fa-user-circle text-gray1"></i> Usuario</span>
                             <input type="text" class="form-control" name="txtusuario" value="<?php echo $perfil->NombreUsuario; ?>" data-parsley-required="true" data-parsley-trigger="keyup" data-parsley-length="[6, 10]" >
                         </div>
                         <br>
                         <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa fa-user text-green"></i> Nombre Completo</span>
+                            <span class="input-group-addon"><i class="fa fa fa-user text-gray1"></i> Nombre Completo</span>
                             <input type="text" class="form-control" name="txtNombCompl" value="<?php echo $perfil->nombreCompleto; ?>" data-parsley-required="true" data-parsley-trigger="keyup">
                         </div>
                         <br>
                         <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa fa-envelope-open text-green"></i> Correo Electronico</span>
+                            <span class="input-group-addon"><i class="fa fa fa-envelope-open text-gray1"></i> Correo Electrónico </span>
                             <input type="email" class="form-control" name="txtemail" value="<?php echo $perfil->email; ?>" data-parsley-required="true" data-parsley-trigger="keyup" data-parsley-type="email">
                         </div>
                         <br>
                     </div>
                     <!-- /.box-body -->
-                    <div class="box-footer"></div>
+                    <div class="box-footer">
                     <?php if ($this->session->userdata('rol') == 1): ?>
-                        <button type="submit" class="btn bg-orange waves-effect orange" name="btnEditarPerfilAdmin"><i class='fa fa-edit'> Actualizar Perfil Administrador</i></button>
+                    <button style="margin-left: 35%;" type="submit" class="btn bg-orange waves-effect orange" name="btnEditarPerfilAdmin"><i class='fa fa-edit'> Actualizar Perfil Administrador</i></button>
 
                     <?php endif; ?>
                     <?php if ($this->session->userdata('rol') == 2): ?>
-                        <button type="submit" class="btn bg-orange waves-effect orange" name="btnEditarPerfilColabora"><i class='fa fa-edit'> Actualizar Perfil Colaborador</i></button>
+                        <button style="margin-left: 35%;" type="submit" class="btn bg-orange waves-effect orange" name="btnEditarPerfilColabora"><i class='fa fa-edit'> Actualizar Perfil Colaborador</i></button>
 
                     <?php endif; ?>
                 </div>
@@ -80,13 +80,6 @@
                 <?php endif; ?>
             </div>
 
-            <div class="col-8">
-
-            </div>
-
         </div>
     </section>
-
-
-
 </div>

@@ -1,6 +1,6 @@
 <div class="container">
     <section class="section" data-parsley-validate>
-      <h1  class="h1-responsive orange-text text-center">Orden de Salida</h1>
+        <h1  class="h1-responsive text-orange text-center">Orden de Salida</h1>
         <div style="height: 4vh"></div>
         <?php echo form_open('ingresosalida'); ?>
         <div class="row">
@@ -29,59 +29,55 @@
             </div>
         </div>
         <div class="row">
-    <div class="col-md-5" style="margin-left: 350px;">
-        <div class="box box-danger">
+            <div class="col-md-5" style="margin-left: 350px;">
+                <div class="box box-success">
 
-            <!-- /.box-header -->
-            <div class="box-body">
-                <div class="form-group">
-                    <i class="fa fa-cart-plus prefix fa-2x"></i> <label for="snombP" data-error="wrong" data-success="right"></i> Nombre del Producto: </label>
-                    <input type="text" id="snombP" class="form-control validate" name="txtProducto">
-                    
-                    
-                </div> 
-            
-            <script>
-                $(function () {
-                    $("#snombP").autocomplete({
-                        source: "<?php base_url() ?>inventario/get_producto" // path to the get_birds method
-                    });
-                });
-            </script>
-            
-                <div class="form-group">
-                    <i class="fa fa-cubes prefix fa-2x"></i> <label for="cants" data-error="wrong" data-success="right">Cantidad Salida:</label>
-                    <input type="text" id="cants" class="form-control validate" name="txtCantsalida">
-                    
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <div class="input-group">
+                            <label class="input-group-addon" for="snombP" data-error="wrong" data-success="right"><i class="fa fa-cart-plus text-gray1"></i></label>
+                            <input type="text" id="snombP" class="form-control validate" name="txtProducto" placeholder="Nombre del Producto">
+                        </div> 
+                        <br>
+                        <script>
+                            $(function () {
+                                $("#snombP").autocomplete({
+                                    source: "<?php base_url() ?>inventario/get_producto" // path to the get_birds method
+                                });
+                            });
+                        </script>
+
+                        <div class="input-group">
+                            <label  class="input-group-addon" for="cants" data-error="wrong" data-success="right"><i class="fa fa-cubes text-gray1"></i></label>
+                            <input type="text" id="cants" class="form-control validate" name="txtCantsalida" placeholder="Cantidad Salida">
+
+                        </div>
+                        <br>
+
+                        <div class="input-group">
+                            <label  class="input-group-addon" for="snombP" data-error="wrong" data-success="right"> <i class="fa fa-money text-gray1"></i> </label>
+                            <input type="text" id="snombP" class="form-control validate" name="txtPreSalida" placeholder="Precio Salida">
+                        </div>  
+                        <br>
+
+                        <div class="input-group">
+                            <label for="snombP" data-error="wrong" data-success="right" class="input-group-addon"> <i class="fa fa-list-alt text-gray1"></i></label>
+                            <select name="cboMotivo" class="form-control md-form"  id="motivos" required data-parsley-trigger="keyup">
+                                <option value="">seleccione un motivo de salida</option>
+                                <option value="merma">Merma</option>
+                                <option value="devolucion"> devolucion proveedor</option>
+                                <option value="venta">venta</option>
+                            </select>
+                        </div>  
+                    </div>
                 </div>
-            
-           
-                <div class="form-group">
-                    <i class="fa fa-money prefix fa-2x"></i> <label for="snombP" data-error="wrong" data-success="right"> Precio Salida</label>
-                    <input type="text" id="snombP" class="form-control validate" name="txtPreSalida">
-                </div>  
-            
-            
-            <div class=form-group">
-                    <label for="snombP" data-error="wrong" data-success="right"> <i class="fa fa-list-alt fa-2x"></i> Motivo Salida</label>
-
-                    <select class="form-control" name="cboMotivo">
-                        <option value="merma">Merma</option>
-                        <option value="devolucion"> devolucion proveedor</option>
-                        <option value="venta">venta</option>
-                      
-                    </select>
-                </div>  
-           
             </div>
-</div>
-        </div>
         </div>
         <div class="row">
             <div class="col-11">
                 <div class="flex-center">
 
-                    <button style="margin-left: 500px;" type="submit" class="btn bg-orange " name="btnNuevaSalida"  ><i class='fa fa-send'> Registrar Orden Salida</i></button>
+                    <button style="margin-left: 500px;" type="submit" class="btn bg-orange " name="btnNuevaSalida"  ><i class='fa fa-save'> Registrar Orden Salida</i></button>
 
                 </div>
             </div>

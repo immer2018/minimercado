@@ -24,34 +24,33 @@ class Welcome extends CI_Controller {
         $template1 = '<section class="content">
        <div style="height: 6vh"></div>      
 <div class="row">
-<div class="col-md-4">
-  
- <div class="box box-success">
-  <div class="box box-success">
-    <h3 class="box-title"><div style="width: 7vh"></div> <i class="fa fa-shopping-cart text-green"></i> Productos</h3>
-    <div class="box-tools pull-right">
-      <!-- Buttons, labels, and many other things can be placed here! -->
-      <!-- Here is a label for example -->
-            
-    </div>
-    <!-- /.box-tools -->
-  </div>
-  <!-- /.box-header -->
-  <div class="box-body">
-    Registre, actualize, liste categorias ,subcategorias y productos
 
-  </div>
-  <!-- /.box-body -->
-  <div class="box-footer">
-   
-  </div>
-  <!-- box-footer -->
-</div>
-</div>
+<div class="col-md-4">
+<div >
+          <div class="box box-success">
+            <div class="box-header with-border">
+              <h3 class="box-title"> <i class="fa  fa-shopping-cart" style="color:white;"></i> <span style="color:white;">Productos</span></h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                </button>
+              </div>
+              <!-- /.box-tools -->
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+               Registre, actualize, liste categorias ,subcategorias y productos
+             
+            </div>
+            <!-- /.box-body -->
+          </div>
+           </div>
+            </div>
+
 <div class="col-md-4">
  <div class="box box-success ">
             <div class="box-header with-border">
-              <h3 class="box-title"><i class="fa  fa-list-alt text-green"></i> <span style="color:white;">Novedades</span></h3>
+              <h3 class="box-title"><i class="fa  fa-list-alt" style="color:white;"></i> <span style="color:white;">Novedades</span></h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
@@ -72,7 +71,7 @@ class Welcome extends CI_Controller {
           <div class="col-md-4">
           <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title"> <i class="fa  fa-database text-green"></i> <span style="color:white;">Inventario</span></h3>
+              <h3 class="box-title"> <i class="fa  fa-database " style="color:white;"></i> <span style="color:white;">Inventario</span></h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
@@ -93,17 +92,17 @@ class Welcome extends CI_Controller {
         </section>
        
 ';
-    $notificaciontotal = $this->inventario_model->cantidadVencidos()->cantVencido+$this->inventario_model->cantidadXVencerse()->cuantovencerse+$this->inventario_model->cantidadAgotados()->agotados+$this->inventario_model->cantidadXAgotarse()->cuantoAgotarse;   
+        $notificaciontotal = $this->inventario_model->cantidadVencidos()->cantVencido + $this->inventario_model->cantidadXVencerse()->cuantovencerse + $this->inventario_model->cantidadAgotados()->agotados + $this->inventario_model->cantidadXAgotarse()->cuantoAgotarse;
         $data = array(
             'page_title' => 'ImmerPro- Admin',
-            'heading' => 'Bienvenido Administrador(a)'.$this->usuario_model->consultarPerfil($this->session->userdata('idUsuario'))->nombreCompleto,
+            'heading' => 'Bienvenido Administrador(a)' . $this->usuario_model->consultarPerfil($this->session->userdata('idUsuario'))->nombreCompleto,
             'contenido' => $template1,
-            'totalNotificaciones'=>$notificaciontotal,
-            'vencidos'=>$this->inventario_model->cantidadVencidos()->cantVencido,
-            'porVencerse'=>$this->inventario_model->cantidadXVencerse()->cuantovencerse,
-            'agotados'=>$this->inventario_model->cantidadAgotados()->agotados,
-            'porAgotarse'=>$this->inventario_model->cantidadXAgotarse()->cuantoAgotarse,
-            'perfil' => $this->usuario_model->consultarPerfil($this->session->userdata('idUsuario'))->NombreUsuario 
+            'totalNotificaciones' => $notificaciontotal,
+            'vencidos' => $this->inventario_model->cantidadVencidos()->cantVencido,
+            'porVencerse' => $this->inventario_model->cantidadXVencerse()->cuantovencerse,
+            'agotados' => $this->inventario_model->cantidadAgotados()->agotados,
+            'porAgotarse' => $this->inventario_model->cantidadXAgotarse()->cuantoAgotarse,
+            'perfil' => $this->usuario_model->consultarPerfil($this->session->userdata('idUsuario'))->NombreUsuario
         );
         $this->parser->parse('templates/layout', $data);
     }

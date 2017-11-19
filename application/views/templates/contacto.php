@@ -1,8 +1,4 @@
-
-<br>
-
-
-
+<div style="height: 9vh"></div>
 <section id="contacto" class="section mb-4">
     
                 <div style="height: 5vh"></div> 
@@ -53,9 +49,7 @@
                             <div class="text-center">
                                 <button class="btn btn-orange" type="submit">Enviar <i class="fa fa-paper-plane-o ml-1"></i></button>
                             </div>
-                            <br>
-                            <br>
-                            <br>
+                          
                         </form>
                         <!-- Contact form -->
 
@@ -67,7 +61,7 @@
         </div>
 
                 </div>
-                         </div><div style="height: 12vh"></div> 
+                         </div>
                </center>
-</section><br>
-<div style="height: 36vh"></div> 
+</section>
+<div style="height: 5vh"></div> 

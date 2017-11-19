@@ -21,7 +21,7 @@
                     <div class="box-body">
 
                         <div class="input-group">
-                            <span class="input-group-addon"> <i class="fa fa-calendar-plus-o text-gray" aria-hidden="true" ></i></span>
+                            <span class="input-group-addon"> <i class="fa fa-calendar-plus-o text-gray1" aria-hidden="true" ></i></span>
                             <?php
                             $data = array(
                                 'name' => 'finicial',
@@ -44,7 +44,7 @@
                         </script>
                         <br>
                         <div class="input-group">
-                            <span class="input-group-addon"> <i class="fa fa-calendar-plus-o text-gray" aria-hidden="true" ></i></span>
+                            <span class="input-group-addon"> <i class="fa fa-calendar-plus-o text-gray1" aria-hidden="true" ></i></span>
 
 
                             <?php
@@ -69,7 +69,7 @@
                         </script>
                         <br>
                         <div class="input-group">
-                            <span class="input-group-addon"> <i class="fa fa-briefcase text-gray" aria-hidden="true" ></i></span>
+                            <span class="input-group-addon"> <i class="fa fa-briefcase text-gray1" aria-hidden="true" ></i></span>
 
                             <?php
                             $options = array(
@@ -84,7 +84,7 @@
                         <br>
 
                         <div class="input-group">
-                            <span class="input-group-addon"> <i class="fa fa-briefcase text-gray" aria-hidden="true" ></i></span>
+                            <span class="input-group-addon"> <i class="fa fa-briefcase text-gray1" aria-hidden="true" ></i></span>
 
                             <?php
                             $options = array(

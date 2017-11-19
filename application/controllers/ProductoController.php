@@ -11,7 +11,7 @@ class ProductoController extends CI_Controller {
         if ($this->session->userdata('rol') == NULL) {
             redirect(base_url() . 'iniciar');
         }
-            $notificaciontotal = $this->inventario_model->cantidadVencidos()->cantVencido+$this->inventario_model->cantidadXVencerse()->cuantovencerse+$this->inventario_model->cantidadAgotados()->agotados+$this->inventario_model->cantidadXAgotarse()->cuantoAgotarse;   
+        $notificaciontotal = $this->inventario_model->cantidadVencidos()->cantVencido + $this->inventario_model->cantidadXVencerse()->cuantovencerse + $this->inventario_model->cantidadAgotados()->agotados + $this->inventario_model->cantidadXAgotarse()->cuantoAgotarse;
 
 
 //        $idProducto = $this->uri->segment(3);
@@ -25,7 +25,7 @@ class ProductoController extends CI_Controller {
         //y así poder mostrar tanto los links como la tabla
         // datos para inactivar un producto
 //        $idProducto = $this->uri->segment(3);
-        
+
 
         $data = array(
             'div1' => " <div id='pagina'>",
@@ -165,8 +165,8 @@ class ProductoController extends CI_Controller {
             redirect(base_url() . 'iniciar');
         }
         $data = array(
-            'page_title' => 'nuevo producto',
-            'perfil' => $this->usuario_model->consultarPerfil($this->session->userdata('idUsuario'))->NombreUsuario,
+            'titulo' => 'nuevo producto',
+            'perfil' => $this->usuario_model->consultarPerfil($this->session->userdata('idUsuario')),
             'subcategorias' => $this->subcategoria_model->obtenerSubCategorias(),
             'totalNotificaciones' => $notificaciontotal,
             'vencidos' => $this->inventario_model->cantidadVencidos()->cantVencido,
@@ -201,8 +201,12 @@ class ProductoController extends CI_Controller {
         $this->form_validation->set_message('max_length', 'El %s  debe tener 13 numeros');
         $this->form_validation->set_message('greater_than', 'el maximo stock debe ser mayor que el minimo stock');
         $this->form_validation->set_message('less_than', 'las existencias deben ser menores que el maximo stock ');
+        
         if ($this->form_validation->run() === FALSE) {
-            $this->parser->parse('templates/producto_layout', $data);
+            $this->load->view('templates/admin/header', $data);
+        $this->load->view('templates/admin/menu', $data);
+        $this->load->view('productos/nuevoProducto', $data);
+        $this->load->view('templates/admin/footer');
         } else {
             // defino variables para ingresar los datos 
             $descrip = strip_tags(trim($this->input->post('txtDescripcion')));
@@ -212,18 +216,21 @@ class ProductoController extends CI_Controller {
             $maximoStock = $this->input->post('txtMaximo');
             $existencias = $this->input->post('txtExits');
             $subcat_id = $this->input->post('subcategoria');
-           
+
             $lote = $this->input->post('txtLote');
             $fechavenc = date("Ymd", strtotime($this->input->post('fvencimiento')));
             // llamo al metodo para agregar productos y el detalle 
-            $ingresoNuevoProducto = $this->productos_model->registrarProductoDetalle($descrip, $nomPro, $CodBarras, $minStock, $maximoStock, $existencias, $subcat_id,$lote, $fechavenc);
+            $ingresoNuevoProducto = $this->productos_model->registrarProductoDetalle($descrip, $nomPro, $CodBarras, $minStock, $maximoStock, $existencias, $subcat_id, $lote, $fechavenc);
             if ($ingresoNuevoProducto) {
                 //Sesion de una sola ejecución
                 $this->session->set_flashdata('correcto', 'producto creado correctamente');
             } else {
                 $this->session->set_flashdata('incorrecto', 'El producto no  esta  creado');
             }
-            $this->parser->parse('templates/producto_layout', $data);
+            $this->load->view('templates/admin/header', $data);
+            $this->load->view('templates/admin/menu', $data);
+            $this->load->view('productos/nuevoProducto', $data);
+            $this->load->view('templates/admin/footer');
         }
     }
 

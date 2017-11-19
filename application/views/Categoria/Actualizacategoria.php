@@ -24,13 +24,13 @@
             </div>
             <div class="col-8 col-md-8">
                 <div class="input-group">
-                    <span class="input-group-addon"> <i class="fa fa-suitcase text-green" aria-hidden="true" ></i> Categoría</span>
+                    <span class="input-group-addon text-gray1"> <i class="fa fa-suitcase " aria-hidden="true" ></i> Categoría</span>
                
                     <input type="text" id="form1" class="form-control" name="NombreCategoria" required="required" value="<?= $Nombre ?>">
                 </div>
                 <div style="height: 1vh"></div>
                 <div class="input-group">
-                    <span class="input-group-addon"> <i class="fa fa-pencil text-green " aria-hidden="true" ></i> Detalle de Categoría</span>
+                    <span class="input-group-addon text-gray1"> <i class="fa fa-pencil  " aria-hidden="true" ></i> Detalle de Categoría</span>
                   
                     <textarea id="detallecat" class="form-control" name="txtdetalle" required="required"><?= $Detalles ?></textarea>
                     
@@ -40,7 +40,7 @@
         </div>
                 <div class="box-footer">
                     <div class="btn-group m-2">
-                        <button type="submit" class="btn bg-orange " name="btnActCategoria" > <i class='fa fa fa-edit'> </i>Actualizar Categorìa</button>
+                        <button type="submit" class="btn bg-orange " name="btnActCategoria" style="margin-left: 200px;"> <i class='fa fa fa-edit'> </i>Actualizar Categorìa</button>
                     </div>
                 </div>
     </div>

@@ -1,13 +1,14 @@
 <div style="height: 5vh"></div>
+<center>
 <div class="container" >
     <section class="content">
         <p class="h2 text-orange text-center">Restauraciòn Informaciòn</p>
         <div style="height: 4vh"></div>
-        <div class="row">
-            <div class="col-md-8">
-                <div class="box box-info">
+        <div class="row" >
+            <div class="col-md-8" style="margin-left: 100px;">
+                <div class="box box-success">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Informaciòn del mòdulo </h3>
+                        <h3 class="box-title resaltar"><i class="fa fa-info-circle"></i> Informaciòn del mòdulo </h3>
 
                         <div class="box-tools pull-right">
                             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
@@ -29,7 +30,7 @@
                 <!-- /.box -->
             </div> 
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8" style="margin-left: 100px;">
             <!-- Custom Tabs (Pulled to the right) -->
             <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs pull-right">
@@ -276,7 +277,7 @@
                     <!-- nav-tabs-custom -->
                 </div>
                 <!-- /.col -->
-          
+          </center>
     </section>
 </div>
 

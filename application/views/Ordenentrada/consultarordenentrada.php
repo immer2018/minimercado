@@ -35,7 +35,7 @@
     <div class="col-xs-12">
         <div class="box">
             <div class="box-header">
-                <h3 class="box-title box-warning">Listado de entrada de productos</h3>
+                <h3 class="box-title box-warning resaltar"> <i class="fa fa-table"></i> Listado de entrada de productos</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">

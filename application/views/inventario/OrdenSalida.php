@@ -25,9 +25,9 @@
                         <option class="dropdown-item" value="motivoSal" >Motivo</option>
 
                     </select><br>
-                
-                <button class="btn bg-orange " type="submit"><i class="fa fa-search"></i>Buscar</button>
-            </div>
+                    <center>
+                        <button style="margin-left: -120px;" class="btn bg-orange " type="submit"><i class="fa fa-search"></i>Buscar</button>
+            </center></div>
    
        <div style="height: 1vh"></div>
                 </div>
@@ -39,7 +39,7 @@
     <div class="col-xs-12">
         <div class="box">
             <div class="box-header">
-                <h3 class="box-title box-warning">Listado de salida de productos</h3>
+                <h3 class="box-title resaltar"> <i class="fa fa-table"></i> Listado de salida de productos</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">

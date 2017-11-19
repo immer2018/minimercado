@@ -21,17 +21,7 @@
             alerta();
 
         </script>
-<!--        <script type="text/javascript">
 
-            Push.create("Contraseña actualizada correctamente", {
-                body: "Ingresa con la contraseña actualizada",
-                icon: "<?php //echo base_url() ?>public/img/medd_logo.png",
-                timeout: 4000,
-            });
-            window.location.href = "<?php //echo base_url() ?>iniciar";
-            this.close();
-
-        </script>-->
   
     </div> 
 </body>

@@ -14,9 +14,9 @@
                         <input type="search" name="txtbuscar" id="buscar" required="required" class="form-control" data-parsley-required="true">
                     </div>  
 
-                    <div class="form-group">
+                    <div class="form-group"><center>
                         <button class="btn bg-orange " type="submit"> <i class="fa fa-search"></i> realizar busqueda</button>
-                    </div>
+                   </center> </div>
                 </div>
                 <!-- /.box-body -->
             </div>

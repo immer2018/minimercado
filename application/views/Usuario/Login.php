@@ -1,6 +1,14 @@
- 
-<br>
-<br>
+<style>
+    .centerdiv{
+        margin-left: 7%; 
+        margin-top: 15%;
+
+    }
+    .inputtam{
+        width: 300px;
+    }
+</style>
+<div style="height: 2vh"></div>
 <section id="intro" class="intro">
     <div class="intro-content">
 
@@ -30,70 +38,58 @@
                     </div>
 
 
-                </div><br><br><br><br>
+                </div><div style="height: 4vh"></div>
                 <div class="col-lg-6">
-
-
-
-
                     <div id="sendmessage">envio exitoso</div>
                     <div id="errormessage"></div>
 
                     <form action="" method="post" role="form" class="contactForm lead">
 
-                        <div class="col-xs-6 col-sm-6 col-md-6 panel panel-primary" style="margin-left: 50px; margin-top: -40px; width: 650px;">
-                            <div class="col-xs-6 col-sm-6 col-md-6 panel panel-primary" style="margin-left: -15px; margin-top: -0px; width: 650px; height: 70px;">
+                        <div class=" flex-center col-xs-6 col-sm-6 col-md-6 panel-primary" style="margin-left: 50px; margin-top: -40px; width: 550px;">
+                            <div class="col-xs-6 col-sm-6 col-md-6 panel-primary" style="margin-left: -15px; margin-top: -0px; width: 550px; height: 70px;">
                                 <a class="navbar-brand" >
-                                    <img src="<?php echo base_url() ?>public/img/ilogo.png" alt="" width="120" height="70" style=" margin-top:-28px ;margin-left: 130px;; width: 300px; height: 80px;" />
+                                    <img src="<?php echo base_url() ?>public/img/ilogo.png" alt="" width="120" height="70" style=" margin-top:-28px; margin-left: 120px; width: 250px; height: 80px;" />
                                 </a>
                             </div>
-                            <br><br><br><br>
-                            <div class="form-group ">
+                            <div style="height: 4vh"></div>
+                            <div class="centerdiv">
+                                <div class="form-group">
+                                    <input type="hidden" name="token" value="<?= $token ?>">
+                                    <i class="fa fa-user"> </i> <label >Usuario</label> 
+                                    <input style=""  type="text" name="txtusuario" id="first_name" class="form-control input-md" data-rule="minlen:3" data-msg="Please enter at least 3 chars">
 
-                                <center>
-                                    <table >
-
-
-                                        <tr>
-                                            <td style=" width: 300px;"><i class="fa fa-user"> </i> <label >Usuario</label> </td>
-
-                                            <td style=" width: 250px;"><i class="fa fa-lock"> </i> <label >Contraseña</label></td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <input type="hidden" name="token" value="<?= $token ?>">
-                                            </td>
-                                        </tr>
-                                        <tr>
-
-                                            <td><input style="width: 250px;"  type="text" name="txtusuario" id="first_name" class="form-control input-md" data-rule="minlen:3" data-msg="Please enter at least 3 chars">
-
-                                                <div class="validation"></div></td>
-                                            <td><input type="password" name="txtpassword" id="last_name" class="form-control input-md" data-rule="minlen:3" data-msg="Please enter at least 3 chars">
-                                                <div class="validation"></div></td>
-                                        </tr>
-                                    </table>
-                                    <div class="flex-center">
-                                        <div class="alert-danger"><?php echo validation_errors(); ?></div> 
-                                        <?php if ($this->session->flashdata('usuario_mal')): ?>
-                                            <div class="alert alert-success"><?= $this->session->flashdata('usuario_mal') ?></div> 
-                                        <?php endif; ?>
-                                    </div>
-                                </center>
+                                </div>
+                                <div class="form-group">
+                                    <i class="fa fa-lock"> </i> <label >Contraseña</label>
+                                    <input  type="password" name="txtpassword" id="last_name" class="form-control input-md" data-rule="minlen:3" data-msg="Please enter at least 3 chars">
+                                    <div class="validation"></div>
+                                </div> 
 
                             </div>
-             <input style="margin-left: 250px;" type="submit" value="Ingresar" class="btn btn-skin  btn-lg">
+
+
+                            <input style="margin-left: 198px;" type="submit" value="Ingresar" class="btn btn-orange  btn-lg bg-orange">
                             <br>
 
-
-                            <label style="margin-left: 230px; margin-top: -22px;"><a href="<?php  echo base_url()?>olvido"><b>Olvido de contraseña</b></a></label>
+                            <div style="height: 3vh"></div>
+                            <label style="margin-left: 200px; margin-top: -29px;"><a href="<?php echo base_url() ?>olvido"><b>Olvido de contraseña</b></a></label>
+                            <div class="form-group">
+                                <?php if (validation_errors()):  ?>
+                                <div class="alert alert-danger"> <?php echo validation_errors(); ?></div> 
+                                <?php endif; ?>
+                                <?php if ($this->session->flashdata('usuario_mal')): ?>
+                                    <div class="alert alert-warning"><?= $this->session->flashdata('usuario_mal') ?></div> 
+                                <?php endif; ?>
+                            </div> 
                         </div>
+
                     </form>
                 </div>
 
-                </center>
+                <div style="height: 4vh"></div>
+                <div class="centerdiv">
 
+                </div>
 
             </div>				
 
@@ -103,9 +99,7 @@
 </div>		
 
 </section>
-<br>
-<br>
-
+<div style="height: 5vh"></div>
 
 
 

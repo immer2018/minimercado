@@ -159,7 +159,7 @@ class Proveedor extends CI_Controller {
             foreach ($proveedor as $proveedor_item) {
                 $this->table->add_row(
                         $proveedor_item['nit'], $proveedor_item['NombreProveedor'], $proveedor_item['TelefonoProveedor'], $proveedor_item['DireccionProveedor'], $proveedor_item['CorreoElectronicoProveedor'], $proveedor_item['NombreContacto'], 'Modificar <a class="teal-text" href=' . base_url() . 'proveedor/EditarProveedor/' . $proveedor_item['idProveedor'] . '><i class="fa fa-pencil "></i></a>'
-                        . br() . 'Inactivar <a class="red-text" href=' . base_url() . 'Proveedor/modal/' . $proveedor_item['idProveedor'] . '><i class="fa fa-times" ></i></a>');
+                        . br() . 'Inactivar <a class="red-text" href=' . base_url() . 'Proveedor/modal/' . $proveedor_item['idProveedor'] . '> <br><i class="fa fa-times" ></i></a>');
             }
 
             $this->jquery_pagination->initialize($config);

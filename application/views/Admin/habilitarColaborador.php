@@ -10,9 +10,9 @@
             </script>
             <div class="col-lg-3"></div>
             <div class="col-md-6">
-                <div class="box box-primary">
+                <div class="box box-success">
                     <div class="box-header with-border">
-                        <h3 class="box-title"> <p class="text-center"><i class="fa fa-users fa-3x prefix" aria-hidden="true" ></i><label for="user" class="h3 label-success">Colaborador</label></p></h3>
+                        <h3 class="box-title resaltar"> <i class="fa fa-users fa-3x prefix" aria-hidden="true" ></i><label for="user" class="h3 white-text">Colaborador</label></h3>
 
                     </div>
                     <!-- /.box-header -->

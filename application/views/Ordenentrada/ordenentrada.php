@@ -1,6 +1,6 @@
 <div class="container">
     <section class="section" data-parsley-validate>
-        <h1  class="h1-responsive orange-text text-center">Orden de Entrada</h1>
+        <h1  class="h1-responsive text-orange text-center">Orden de Entrada</h1>
         <div style="height: 4vh"></div>
         <?php echo form_open('IngreseEntrada'); ?>
         <div class="row">
@@ -30,15 +30,16 @@
         </div>
         <div class="row">
     <div class="col-md-5" style="margin-left: 350px;">
-        <div class="box box-danger">
+        <div class="box box-success">
 
             <!-- /.box-header -->
             <div class="box-body">
-                <div class="form-group">
-                    <i class="fa fa-cart-plus prefix fa-2x"></i> <label for="producto" data-error="wrong" data-success="right">Nombre del producto</label>
-                    <input type="text" name="txtProducto" id="producto" class="form-control">
+                <div class="input-group">
+                    <label for="producto" class="input-group-addon" data-error="wrong" data-success="right"><i class="fa fa-cart-plus text-gray1"></i></label>
+                    <input type="text" name="txtProducto" id="producto" class="form-control" placeholder="Nombre del producto">
 
                 </div>
+                <br>
                 <script>
                     $(function () {
                         $("#producto").autocomplete({
@@ -46,17 +47,18 @@
                         });
                     });
                 </script>
-                <div class="form-group">
-                    <i class="fa fa-cubes prefix fa-2x"></i> <label for="cantentrada" data-error="wrong" data-success="right">Cantidad Entrada:</label>
-                    <input type="text" id="cantentrada" class="form-control" name="txtCantentra">
+                <div class="input-group">
+                    <label for="cantentrada"  class="input-group-addon" data-error="wrong" data-success="right"><i class="fa fa-cubes text-gray1 "></i> </label>
+                    <input type="text" id="cantentrada" class="form-control" name="txtCantentra" placeholder="Cantidad Entrada">
                 </div>
-
-                <div class="form-group">
-                    <i class="fa fa-money prefix fa-2x"></i>  <label for="snombP" data-error="wrong" data-success="right"> Precio Entrada</label>
-                    <input type="text" name="txtPreentra" id="form1" class="form-control">
+                <br>
+                <div class="input-group">
+                    <label for="snombP" data-error="wrong" data-success="right" class="input-group-addon"> <i class="fa fa-money text-gray1"></i>  </label>
+                    <input type="text" name="txtPreentra" id="form1" class="form-control" placeholder="Precio Entrada">
                 </div>
-                <div class="form-group">
-                    <label for="proveedor" data-error="wrong" data-success="right"> <i class="fa fa-photo fa-2x"></i> Proveedor</label>
+                <br>
+                <div class="input-group">
+                    <label for="proveedor" data-error="wrong" data-success="right" class="input-group-addon"> <i class="fa fa-photo text-gray1"></i></label>
                     <select name="txtCodProv" class="form-control md-form"  id="txtCodProv" required data-parsley-trigger="keyup">
                         <option value="">seleccione un Proveedor</option>
                         <?php foreach ($proveedor_select as $proveedor_item): ?>

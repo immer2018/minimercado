@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
     <head>
         <meta charset="utf-8">
@@ -29,7 +30,23 @@
         <link rel="stylesheet" href="<?= base_url() ?>public/bower_components/bootstrap-daterangepicker/daterangepicker.css">
         <!-- bootstrap wysihtml5 - text editor -->
         <link rel="stylesheet" href="<?= base_url() ?>public/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+        <style>
+            .resaltar{
+                color: rgb(255,255,250);  
+            }
 
+            #tsm{height: 1px;
+                 width: 2px;      }
+            #categoria1:active{
+                color: rgb(0,153,51);
+
+            }
+            .categoria1:hover{
+                background-color:rgb(220,102,51);
+                color: rgb(255,251,255);
+
+            }
+        </style>
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -40,12 +57,13 @@
         <!-- Google Font -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     </head>
+
     <body class="hold-transition  sidebar-mini">
         <div class="wrapper">
 
             <header class="main-header">
                 <!-- Logo -->
-                <a href="<?= base_url() ?>welcome" class="logo">
+                <a href="<?= base_url() ?>Welcome" class="logo">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
                     <span class="logo-mini">M</span>
                     <!-- logo for regular state and mobile devices -->
@@ -61,10 +79,10 @@
                     <div class="navbar-custom-menu">
                         <ul class="nav navbar-nav">
                             <!-- Messages: style can be found in dropdown.less-->
-                       
+
                             <!-- Notifications: style can be found in dropdown.less -->
                             <li class="dropdown notifications-menu">
-                                <a href="<?= base_url() ?>public/#" class="dropdown-toggle" data-toggle="dropdown">
+                                <a href="" class="dropdown-toggle" data-toggle="dropdown">
                                     <i class="fa fa-bell-o"></i>
                                     <span class="label label-warning">{totalNotificaciones}</span>
                                 </a>
@@ -74,35 +92,35 @@
                                         <!-- inner menu: contains the actual data -->
                                         <ul class="menu">
                                             <li>
-                                                <a href="<?= base_url() ?>#">
+                                                <a href="">
                                                     <i class="fa fa- fa-calendar-times-o text-gray"></i> <span class="label label-default">{vencidos}</span> productos vencidos
                                                 </a>
                                             </li>
-                                           
+
                                             <li>
-                                                <a href="<?= base_url() ?>#">
+                                                <a href="">
                                                     <i class="fa fa-calendar-minus-o text-info"></i> <span class="label label-info">{porVencerse}</span> productos por vencerse
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="<?= base_url() ?>#">
+                                                <a href="">
                                                     <i class="fa fa-battery-empty text-red"></i> <span class="label label-danger">{agotados}</span> productos agotados
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="<?= base_url() ?>#">
+                                                <a href="">
                                                     <i class="fa fa-battery-1 text-orange"></i><span class="label label-warning">{porAgotarse}</span> productos  por agotarse
                                                 </a>
                                             </li>
                                         </ul>
                                     </li>
-                                    <li class="footer"><a href="<?= base_url() ?>#"></a></li>
+                                    <li class="footer"><a href=""></a></li>
                                 </ul>
                             </li>
-                     
+
                             <!-- User Account: style can be found in dropdown.less -->
                             <li class="dropdown user user-menu">
-                                <a href="<?= base_url() ?>public/#" class="dropdown-toggle" data-toggle="dropdown">
+                                <a href="" class="dropdown-toggle" data-toggle="dropdown">
                                     <img src="<?= base_url() ?>public/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
                                     <span class="hidden-xs">{perfil}</span>
                                 </a>
@@ -176,9 +194,9 @@
                     <!-- /.search form -->
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu" data-widget="tree">
-                    
+
                         <li class="treeview">
-                            <a href="<?= base_url() ?>public/#">
+                            <a href="">
                                 <i class="fa fa-briefcase text-orange"></i> <span>Categoría</span>
                                 <span class="pull-right-container">
                                     <i class="fa fa-angle-left pull-right"></i>
@@ -219,7 +237,7 @@
                             </ul>
                         </li>
                         <li class="treeview">
-                            <a href="<?= base_url() ?>public/#">
+                            <a href="">
                                 <i class="fa fa-folder text-orange"></i>
                                 <span>Inventario</span>
                                 <span class="pull-right-container">
