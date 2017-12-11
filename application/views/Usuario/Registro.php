@@ -12,7 +12,7 @@
         <div class="col-md-7">
             <div class="box box-success">
                 <div class="box-header">
-                    <h3 class="box-title"><p style="text-transform: capitalize; color: white; text-align: center;">registro Colaborador</p></h3>
+                    <h3 class="box-title"><p style="text-transform: capitalize; color: white; text-align: center;"><i class="fa fa-plus"></i> registro Colaborador</p></h3>
 
                     <!-- /.box-tools -->
                 </div>

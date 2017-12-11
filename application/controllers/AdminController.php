@@ -1,5 +1,6 @@
 <?php
-
+ini_set("display_errors", FALSE);
+defined('BASEPATH') OR exit('No direct script access allowed');
 class AdminController extends CI_Controller {
 
     //metodo constructor
@@ -89,7 +90,7 @@ class AdminController extends CI_Controller {
 
 // actualiza el perfil del administrador
     public function actualizarPerfilAdmin() {
-        if ($this->session->userdata('rol') == NULL || $this->session->userdata('rol') != 1) {
+        if ($this->session->userdata('rol') == NULL OR $this->session->userdata('rol') != 1) {
             redirect(base_url() . 'iniciar');
         }
         $this->form_validation->set_rules('txtNombCompl', 'Nombre', 'required|alpha_numeric_spaces');

@@ -17,7 +17,7 @@
                 </div>
 
             <?php endif; ?>
-             <?php echo form_open('producto'); ?>
+            <?php echo form_open('producto'); ?>
             <span ><?php echo validation_errors(); ?></span>
         </div></div>
     <div class="row">
@@ -81,50 +81,59 @@
     </div>
 
     <div class="row">
-        <div class="col-xs-5" style="margin-left: 340px;">
+        <div class="col-xs-8 " style="margin-left: 240px;">
             <div class="box">
                 <div class="box-header">
                     <h3 class="box-title text-center">Productos</h3>
                 </div>
                 <!-- /.box-header -->
-                <div style="height: 4vh"></div>
-                        <div class=" form-group" style="margin-left: 50px;">
-                                <label for="buscar" class="badge badge-warning"> <i class="fa fa-search"></i> busqueda</label>
-                                <br>
-                                <input style="width: 350px;" type="search" name="txtbuscar" id="buscar" required="required" class="form-control" data-parsley-required="true">
-                            </div>  
-                             <br>
-                            <div class="form-group" style="margin-left: 50px;">
-                                <select style="width: 350px;"  name="ddlfiltro" class="form-control" data-parsley-required="true">
-                                    <option value="NombreProducto">Producto</option>   
-                                    <option value="NombreSubCategoria">Subcategoria</option>   
-                                </select> <br>
-                                <button style="margin-left: 130px;" class="btn bg-orange" type="submit"> <i class="fa fa-search"></i>  Buscar</button>
-                            </div>
-<div style="height: 1vh"></div>
+                <div style="height: 2vh;"></div>
+              
+                    <div class="row">
+                        <div class="col-md-2">
+                            busqueda
+                        </div> 
+                        <div class="col-md-4"> 
+                            <input type="text" name="txtbuscar" id="buscar" required="required" class="form-control" data-parsley-required="true">
+
                         </div>
+                        <div class="col-md-4">
+                            <select   name="ddlfiltro"  data-parsley-required="true" class="form-control">
+                                <option value="NombreProducto">Producto</option>   
+                                <option value="NombreSubCategoria">Subcategoria</option>   
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn bg-orange" title="Buscar"> <i class="fa fa-search"></i> </button>
+                            </span> 
+
                         </div>
                     </div>
-                    <div style="height: 2vh"></div>
-<div class="row">
-    <div class="col-xs-12">
-        <div class="box">
-            <div class="box-header">
-                <h3 class="box-title box-warning">Listado de Productos</h3>
+             
+                <div style="height: 2vh;"></div>
             </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-                    <?php echo $div1 . $table; ?>
-
-
-                </div>
-            </div>
-
-
-            <?php echo form_close(); ?>
         </div>
-        <!-- /.box-body -->
-    </div>
+        <div style="height: 2vh"></div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title box-warning">Listado de Productos</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <?php echo $div1 . $table; ?>
+
+
+                    </div>
+                </div>
+
+
+                <?php echo form_close(); ?>
+            </div>
+            <!-- /.box-body -->
+        </div>
 
 </section>
 

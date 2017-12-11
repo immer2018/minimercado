@@ -27,8 +27,8 @@
                                     echo $Subcategoria_item['NombreCategoria'];
                                     echo br(3);
                                     ?></td>
-                                <td> Modificar <a class="teal-text"  href=" <?php echo base_url() . 'SubCategoria/editarSub/' . $Subcategoria_item['idSubcategoria'] ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                    Inactivar <a class="red-text"  href=" <?php echo base_url() . 'SubCategoria/modalSub/' . $Subcategoria_item['idSubcategoria'] ?>"><i class="fa fa-remove" aria-hidden="true"></i>
+                                <td> <a  title="Modificar" class="teal-text"  href=" <?php echo base_url() . 'SubCategoria/editarSub/' . $Subcategoria_item['idSubcategoria'] ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                     <a title="Eliminar" class="text-red"  href=" <?php echo base_url() . 'SubCategoria/modalSub/' . $Subcategoria_item['idSubcategoria'] ?>"><i class="fa fa-remove" aria-hidden="true"></i>
                                     </a>
                                 </td>
 

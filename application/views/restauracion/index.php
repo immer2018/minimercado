@@ -1,13 +1,13 @@
 <div style="height: 5vh"></div>
 <div class="container" >
     <section class="content">
-        <p class="h2 text-orange text-center">Restauraciòn Informaciòn</p>
+        <p class="h2 text-orange text-center"></p>
         <div style="height: 4vh"></div>
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-11">
                 <div class="box box-info">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Informaciòn del mòdulo </h3>
+                        <h3 class="box-title resaltar"> <i class="fa fa-recycle"></i> Restauraciòn Informaciòn</h3>
 
                         <div class="box-tools pull-right">
                             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
@@ -17,19 +17,13 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <p class="h4">
-                            en esta seccion podra ver la informacion que esta inactiva y tendra la opcion 
-                            de activarla nuevamente por favor dar click sobre los modulos que desee ver
+                        <p >
+                            en esta sección podra ver la información que esta inactiva y tendra la opción 
+                            de activarla nuevamente por favor dar click sobre los módulos que desee ver
                             por ejemplo si quiero ver las categorias eliminadas dar click sobre 
                             categorìa y se desplegara la informaciòn solicitada
-                        </p> 
-                    </div>
-                    <!-- /.box-body -->
-                </div>
-                <!-- /.box -->
-            </div> 
-        </div>
-        <div class="col-md-8">
+                        </p> <br>
+                            <div class="col-md-11">
             <!-- Custom Tabs (Pulled to the right) -->
             <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs pull-right">
@@ -70,7 +64,7 @@
 
                             </table>
                             <?php else: ?>
-                            <p class="lead">
+                            <p >
                                 no hay categorias eliminadas
                             </p>   
                             <?php endif; ?>
@@ -104,7 +98,7 @@
 
                             </table>
                             <?php else: ?>
-                            <p class="lead">
+                            <p >
                                 no hay subcategorias inactivas 
                             </p>   
                             <?php endif; ?>
@@ -139,7 +133,7 @@
 
                             </table>
                             <?php else: ?>
-                            <p class="lead">
+                            <p >
                                 no hay productos inactivos 
                             </p>   
                             <?php endif; ?>
@@ -177,7 +171,7 @@
                                     </tr>
                                     <?php endforeach; ?>
                                     <?php else: ?>
-                            <p class="lead">
+                            <p >
                                 no hay proveedores  inactivos 
                             </p>  
                                     <?php endif;?>
@@ -216,7 +210,7 @@
 
                                     </table>
                                     <?php else: ?>
-                                    <p class="lead">
+                                    <p >
                                         no hay nuevos colaboradores registrados
                                     </p>   
                                     <?php endif; ?>
@@ -259,7 +253,7 @@
 
                                     </table>
                                     <?php else: ?>
-                                    <p class="lead">
+                                    <p >
                                         no hay colaboradores activos 
                                     </p>   
                                     <?php endif; ?>
@@ -273,6 +267,13 @@
                         </div>
                         <!-- /.tab-content -->
                     </div>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div> 
+        </div>
+    
                     <!-- nav-tabs-custom -->
                 </div>
                 <!-- /.col -->

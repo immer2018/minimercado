@@ -1,6 +1,7 @@
+
 <div class="container">
-    <section class="section"data-parsley-validate>
-        <h1 class="display-4 orange-text flex-center" style="margin-left: 400px;">Producto a Actualizar</h1>
+    <section class="content" data-parsley-validate>
+        <h1 class="h1-responsive text-orange text-center">Actualizar Producto</h1>
         <div style="height: 4vh"></div>
         <?php echo form_open('ProductoController/ProductoActualizado/' . $id); ?>
         <div class="row">
@@ -26,101 +27,166 @@
                     </div>
 
                 <?php endif; ?>
+
+
             </div>
+
+
         </div>
-         <div class="row">
-    <div class="col-md-5" style="margin-left: 350px;">
-        <div class="box box-success">
+        <!--vfbvhbvbfvoifdhnvofduhmgvudfhngoidjgoijtoi-->
 
-            <!-- /.box-header -->
-            <div class="box-body">
-                <div class="md-form" style="">
-                    <i class="fa fa-cart-plus prefix fa-2x"></i> <label for="prod">Producto</label>
-                    <input type="text" id="prod" class="form-control" name="txtNombProd" data-parsley-trigger="keyup" data-parsley-required-message="el campo no debe estar vacio" value="<?= $producto ?>">
-                    
-                </div> 
-           
-                <div class="md-form">
-                    <i class="fa fa-pencil prefix fa-2x"></i> <label for="descrip">Descripciòn</label><br>
-                    <textarea style="width: 438px;" type="text" id="descrip" class="md-textarea" name="txtDescripcion"
-                              data-parsley-required="true" 
-                              data-parsley-trigger="keyup" 
-                              data-parsley-required-message="el campo no debe estar vacio">
+        <div class="row">
+            <div class="col-lg-11" >
+                <div class="box box-success">
+                    <div class="box-header with-border">
+                        <h3 class="box-title"><span class="resaltar"> <i class="fa fa-plus-square-o"></i> productos del minimercado</span></h3>
 
-                        <?= $descripcion ?>
-                    </textarea>
-                    
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
+                                    title="Collapse">
+                                <i class="fa fa-minus"></i></button>
+
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <span class="input-group-addon text-gray"><i class="fa fa-cart-plus  "></i>  Producto </span>
+                                <input type="text" id="prod"  value="<?= $producto ?>" class="form-control" name="txtNombProd" data-parsley-trigger="keyup" data-parsley-required-message="el campo no debe estar vacio" data-parsley-required="true" placeholder="producto">
+
+                            </div>
+                            <br>
+                            <div class="input-group">
+                                <label class="input-group-addon text-gray"><i class="fa fa-briefcase "></i> Categoría</label>
+                                <span class="badge badge-mdb-color h6"></span>
+                                <select name="categoria" class="form-control md-form"  id="categoria" required data-parsley-trigger="keyup">
+                                    <option value="99"><?= $nombreCategoria->categoriaN ?></option>
+
+                                    <?php foreach ($categorias_select as $itemCategoria): ?>
+
+                                        <?php if ($nombreCategoria->categoriaN == $itemCategoria['categoria']): ?>
+                                            <option value="<?= $itemCategoria['codCategoria'] ?>"><?= $itemCategoria['categoria'] ?></option>
+
+                                        <?php else: ?>
+                                            <option value="<?= $itemCategoria['codCategoria'] ?>"><?= $itemCategoria['categoria'] ?></option>
+
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                            <br>
+                            <div class="input-group">
+                                <label class="input-group-addon text-gray"><i class="fa fa-folder-open  "></i> Subcategoría</label>
+                                <select name="subcategoria" id="subcatego" class="form-control" required data-parsley-trigger="keyup"  >
+                                    <?php if ($this->input->post('categoria') == 99): ?>
+                                        <option value="4">Lacteos</option>
+
+                                    <?php else: ?>
+                                        <option value="<?= $idsub ?>"><?= $nombreSub->NombreSubcategoria ?></option>
+
+                                    <?php endif; ?>
+                                </select> 
+                            </div>
+
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <label class="input-group-addon text-gray"><i class="fa fa-book text-gray "></i> Descripción</label>
+                                <textarea class="form-control" rows="3" placeholder="descripción del producto ..." name="txtDescripcion" id="descrip" data-parsley-required="true" 
+                                          data-parsley-trigger="keyup" 
+                                          data-parsley-required-message="el campo no debe estar vacio" > <?= $descripcion ?></textarea>
+                            </div>
+                            <br>
+
+
+
+                        </div>
+
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer">
+
+
+                    </div>
+                    <!-- /.box-footer-->
                 </div>
-            
-                <div class="md-form">
-                   <i class="fa fa-battery-1 prefix fa-2x"></i>
-                    <label for="minimo" >minimoStock</label>
-                    <input type="text" name="txtMinimo"  id="minimo" class="form-control"  required data-parsley-type="number"  data-parsley-trigger="keyup" data-parsley-required-message="el campo no debe estar vacio" value="<?= $minStock ?>" /><br />
+                <!-- /.box --> 
 
-                </div> 
-            
-                <div class="md-form">
-                    <i class="fa fa-battery-full fa-plus prefix fa-2x"></i>
-                    <label for="Maximo" >MaximoStock</label>
-                    <input type="text" name="txtMaximo" id="Maximo" class="form-control" required data-parsley-type="number" data-parsley-trigger="keyup" data-parsley-required-message="el campo no debe estar vacio"  data-parsley-gt="#minimo" data-parsley-gt-message="debe ser mayor que el minimo" value="<?= $maxStock ?>"/><br />
+            </div> 
+        </div> 
 
-                </div> 
-            
-                <div class="md-form">
-                  <i class="fa fa-battery-3 prefix fa-2x"></i>
-                    <label for="exist" >Existencias</label>
-                    <input type="text" name="txtExits"  id="exist" class="form-control" required data-parsley-type="number" data-parsley-trigger="keyup" data-parsley-required-message="el campo no debe estar vacio" data-parsley-integer-message="debe ingresar numeros" value="<?= $exist ?>"/><br />
+        <!--seccion cantidades-->
+
+        <div class="row">
+            <div class="col-lg-11" >
+                <div class="box box-success">
+                    <div class="box-header with-border">
+                        <h3 class="box-title"><span class="resaltar"> <i class="fa fa-plus-square-o"></i> Cantidad</span></h3>
+
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
+                                    title="Collapse">
+                                <i class="fa fa-minus"></i></button>
+
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <div class="col-md-4">
+                            <div class="input-group">
+                                <span class="input-group-addon text-gray"><i class="fa fa-battery-1 "></i> Minimo Stock</span>
+                                <input type="text" name="txtMinimo" value="<?= $minStock ?>" id="minimo" class="form-control"  required data-parsley-type="number"  data-parsley-trigger="keyup" data-parsley-required-message="el campo no debe estar vacio" value="<?= set_value('txtMinimo') ?>" placeholder="minimo"/><br />
+
+                            </div>
+
+
+                        </div>
+                        <div class="col-md-4">
+                            <div class="input-group">
+                                <label class="input-group-addon text-gray"><i class="fa fa-battery-full "></i> Maximo Stock</label>
+                                <input type="text" name="txtMaximo" value="<?= $maxStock ?>" id="Maximo" class="form-control" required data-parsley-type="number" data-parsley-trigger="keyup" data-parsley-required-message="el campo no debe estar vacio" value="<?= set_value('txtMaximo') ?>" data-parsley-gt="#minimo" data-parsley-gt-message="debe ser mayor que el minimo" placeholder="Maximo"/><br />
+
+                            </div>
+                        </div>
+                         <div class="col-md-4">
+                           
+                            <div class="input-group">
+                                <label class="input-group-addon text-gray"><i class="fa fa-folder-open "></i> Existencias </label>
+
+                                <input placeholder="Existencias" type="text" value="<?= $exist ?>" name="txtExits"  id="exist" class="form-control" required data-parsley-type="number" data-parsley-trigger="keyup" data-parsley-required-message="el campo no debe estar vacio" data-parsley-integer-message="debe ingresar numeros" value="<?= set_value('txtExits') ?>"  /><br />
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer">
+                <button  type="submit" class="btn bg-orange pull-right" name="btnEditaProducto"><i class='fa fa-edit'> Actualizar Producto</i></button>
+
+
+                    </div>
+                    <!-- /.box-footer-->
                 </div>
-            
-            <div class="col-6"></div>
-            <div class="md-form">
-                <p class=" h5 teal-text">Si desea cambiar la subcategorìa del producto por favor seleccione una categorìa de lo contrario dar click en el boton actualizar producto</p><br>
+                <!-- /.box --> 
 
-            </div>
+            </div> 
+        </div> 
 
-            <div class="md-form">
-                <label for="categoria" > <i class="fa fa-briefcase  prefix fa-2x"></i> Categorìa <span class="badge badge-mdb-color h6"><?= $nombreCategoria->categoriaN ?></span></label>
-                <select name="categoria" class="form-control md-form"  id="categoria" required data-parsley-trigger="keyup">
-                    <option value="99">-seleccione una categoria-</option>
 
-                    <?php foreach ($categorias_select as $itemCategoria): ?>
+        <!--fin cantidades-->
 
-                        <?php if ($nombreCategoria->categoriaN == $itemCategoria['categoria']): ?>
-                            <option value="<?= $itemCategoria['codCategoria'] ?>"><?= $itemCategoria['categoria'] ?></option>
 
-                        <?php else: ?>
-                            <option value="<?= $itemCategoria['codCategoria'] ?>"><?= $itemCategoria['categoria'] ?></option>
-
-                        <?php endif; ?>
-                    <?php endforeach; ?>
-                </select>
-            </div>
-            <div class="col-6">
-                <label for="subcategoria" > <i class="fa fa-folder-o fa-2x prefix "></i> Subcategorìa <span class="badge badge-mdb-color h6"><?= $nombreSub->NombreSubcategoria ?></span></label>
-                <select name="subcategoria" id="subcatego" class="form-control" required data-parsley-trigger="keyup"  >
-                    <?php if ($this->input->post('categoria') == 99): ?>
-                        <option value="4">Lacteos</option>
-
-                    <?php else: ?>
-                        <option value="<?= $idsub ?>"><?= $nombreSub->NombreSubcategoria ?></option>
-
-                    <?php endif; ?>
-                </select> 
-            </div>
-        </div>
-        </div>
-        </div>
-        </div>
-            
         <div class="row">
             <div class="col-11">
-                <div class="flex-center">
 
-                    <button style="margin-left: 520px;" type="submit" class="btn bg-orange " name="btnEditaProducto"><i class='fa fa-edit'> Actualizar Producto</i></button>
 
-                </div>
             </div>
-        </div><div style="height: 2vh"></div> 
+        </div>
+
+
+
+
         <?php echo form_close(); ?>
 
     </section>

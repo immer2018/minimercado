@@ -1,5 +1,6 @@
 <?php
-
+ini_set("display_errors", FALSE);
+defined('BASEPATH') OR exit('No direct script access allowed');
 class Inventario extends CI_Controller {
 
     //put your code here
@@ -119,13 +120,15 @@ class Inventario extends CI_Controller {
             'porVencerse' => $this->inventario_model->cantidadXVencerse()->cuantovencerse,
             'agotados' => $this->inventario_model->cantidadAgotados()->agotados,
             'porAgotarse' => $this->inventario_model->cantidadXAgotarse()->cuantoAgotarse,
-            'perfil' => $this->usuario_model->consultarPerfil($this->session->userdata('idUsuario'))];
-        $t['proveedor_select'] = $this->Proveedor_model->TraerDatos();
+            'perfil' => $this->usuario_model->consultarPerfil($this->session->userdata('idUsuario')),
+            'productos'=> $this->productos_model->obtenerProductos(),
+            'proveedor_select' => $this->Proveedor_model->TraerDatos()];
+        
 
         // cargar la vista
         $this->load->view('templates/admin/header', $data);
         $this->load->view('templates/admin/menu', $data);
-        $this->load->view('Ordenentrada/ordenentrada', $t);
+        $this->load->view('Ordenentrada/ordenentrada', $data);
         $this->load->view('templates/admin/footer');
     }
 
@@ -314,6 +317,7 @@ class Inventario extends CI_Controller {
         $data = ['titulo' => "nuevo orden de entrada",
             'es_usuario_normal' => FALSE,
             'proveedor_select' => $this->Proveedor_model->TraerDatos(),
+            'productos' => $this->productos_model->obtenerProductos(),
              'totalNotificaciones' => $notificaciontotal,
             'vencidos' => $this->inventario_model->cantidadVencidos()->cantVencido,
             'porVencerse' => $this->inventario_model->cantidadXVencerse()->cuantovencerse,
@@ -323,7 +327,7 @@ class Inventario extends CI_Controller {
         $this->form_validation->set_rules('txtCodProv', 'Codigo del Proveedor', 'required');
         $this->form_validation->set_rules('txtPreentra', 'Precio entrada', 'required|numeric');
         $this->form_validation->set_rules('txtCantentra', 'cantidad Entrada', 'required|integer');
-        $this->form_validation->set_rules('txtProducto', 'nombre Producto', 'required|callback_existir_producto');
+        $this->form_validation->set_rules('txtCodProd', 'nombre Producto', 'required');
 
 // FIN VALIDACION DETALLE
         // asignar mensajes
@@ -342,14 +346,14 @@ class Inventario extends CI_Controller {
             $codProveedor = $this->input->post('txtCodProv');
             $precioEntrada = $this->input->post('txtPreentra');
             $cantEntrada = $this->input->post('txtCantentra');
-            $codProducto = $this->input->post('txtProducto');
+            $codProducto = $this->input->post('txtCodProd');
             // llamo al metodo para agregar productos y el detalle
             $ingresoNuevaordendeentrada = $this->Ordenentrada_model->registrarordenentrada($codUsuario, $codProveedor, $precioEntrada, $cantEntrada, $codProducto);
             if ($ingresoNuevaordendeentrada) {
                 //Sesion de una sola ejecución
                 $this->session->set_flashdata('correcto', 'orden entrada registrada correctamente');
             } else {
-                $this->session->set_flashdata('incorrecto', 'El orde de entrada no  esta  registrada');
+                $this->session->set_flashdata('incorrecto', 'El orden de entrada no  esta  registrada');
             }
             $this->load->view('templates/admin/header', $data);
             $this->load->view('templates/admin/menu', $data);

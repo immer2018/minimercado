@@ -1,6 +1,7 @@
 <?php
 
-ini_set("display_errors", TRUE);
+ini_set("display_errors", FALSE);
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 class ReporteController extends CI_Controller {
 

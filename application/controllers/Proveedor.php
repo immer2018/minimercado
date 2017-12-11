@@ -1,5 +1,6 @@
 <?php
-
+ini_set("display_errors", FALSE);
+defined('BASEPATH') OR exit('No direct script access allowed');
 class Proveedor extends CI_Controller {
 
     public function __construct() {
@@ -158,8 +159,8 @@ class Proveedor extends CI_Controller {
             $this->table->set_heading('Nit', 'Proveedor', 'Telefono', 'Direcciòn ', 'Correo electronico ', 'Persona de contacto', 'Acciones');
             foreach ($proveedor as $proveedor_item) {
                 $this->table->add_row(
-                        $proveedor_item['nit'], $proveedor_item['NombreProveedor'], $proveedor_item['TelefonoProveedor'], $proveedor_item['DireccionProveedor'], $proveedor_item['CorreoElectronicoProveedor'], $proveedor_item['NombreContacto'], 'Modificar <a class="teal-text" href=' . base_url() . 'proveedor/EditarProveedor/' . $proveedor_item['idProveedor'] . '><i class="fa fa-pencil "></i></a>'
-                        . br() . 'Inactivar <a class="red-text" href=' . base_url() . 'Proveedor/modal/' . $proveedor_item['idProveedor'] . '><i class="fa fa-times" ></i></a>');
+                        $proveedor_item['nit'], $proveedor_item['NombreProveedor'], $proveedor_item['TelefonoProveedor'], $proveedor_item['DireccionProveedor'], $proveedor_item['CorreoElectronicoProveedor'], $proveedor_item['NombreContacto'], '<a class="teal-text"  title="Modificar" href=' . base_url() . 'proveedor/EditarProveedor/' . $proveedor_item['idProveedor'] . '><i class="fa fa-pencil "></i></a>'
+                        . br() . '<a class="text-red" title="Inactivar" href=' . base_url() . 'Proveedor/modal/' . $proveedor_item['idProveedor'] . '> <br><i class="fa fa-times" ></i></a>');
             }
 
             $this->jquery_pagination->initialize($config);
@@ -170,7 +171,7 @@ class Proveedor extends CI_Controller {
 
             echo $html;
         } else {
-            echo "<div class='flex-center'><p class='lead'>No hay Proveedores </p></div>";
+            echo "<div class='flex-center'><p>No hay Proveedores </p></div>";
         }
     }
 
@@ -230,8 +231,8 @@ class Proveedor extends CI_Controller {
             $this->table->set_heading('Nit', 'Proveedor', 'Telefono', 'Direcciòn ', 'Correo electronico ', 'Persona de contacto', 'Acciones');
             foreach ($proveedor as $proveedor_item) {
                 $this->table->add_row(
-                        $proveedor_item['nit'], $proveedor_item['NombreProveedor'], $proveedor_item['TelefonoProveedor'], $proveedor_item['DireccionProveedor'], $proveedor_item['CorreoElectronicoProveedor'], $proveedor_item['NombreContacto'], 'Modificar <a class="teal-text" href=' . base_url() . 'proveedor/EditarProveedor/' . $proveedor_item['idProveedor'] . '><i class="fa fa-pencil "></i></a>'
-                        . nbs(3) . 'Inactivar <a class="red-text" href=' . base_url() . 'Proveedor/modal/' . $proveedor_item['idProveedor'] . '><i class="fa fa-times" ></i></a>');
+                        $proveedor_item['nit'], $proveedor_item['NombreProveedor'], $proveedor_item['TelefonoProveedor'], $proveedor_item['DireccionProveedor'], $proveedor_item['CorreoElectronicoProveedor'], $proveedor_item['NombreContacto'], '<a class="teal-text"  title="Modificar" href=' . base_url() . 'proveedor/EditarProveedor/' . $proveedor_item['idProveedor'] . '><i class="fa fa-pencil "></i></a>'
+                        . nbs(3) . '<a class="text-red" title="Inactivar" href=' . base_url() . 'Proveedor/modal/' . $proveedor_item['idProveedor'] . '><i class="fa fa-times" ></i></a>');
             }
             $this->jquery_pagination->initialize($config);
 
@@ -241,7 +242,7 @@ class Proveedor extends CI_Controller {
 
             echo $html;
         } else {
-            echo "<div class='flex-center'><p class='lead'>No hay Proveedor</p>";
+            echo "<div class='flex-center'><p>No hay Proveedor</p>";
         }
     }
 

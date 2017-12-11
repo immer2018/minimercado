@@ -15,6 +15,7 @@
                         
                         #tsm{height: 1px;
                                    width: 2px;      }
+                        
                     </style>
                     <div class="container" id="tsm">
 				
@@ -39,7 +40,7 @@
 				<li><a href="<?php echo base_url()?>#Caracteristicas">Caracteristicas</a></li>
 				<li><a href="<?php echo base_url()?>#contacto">Contacto</a></li>
                                 <!--<div class="col-xs-6 col-sm-6 col-md-6 panel panel-primary" style="margin-left: 50px; margin-top: -40px; width: 120px;">-->
-                                <li class=" col-xs-6 col-sm-2 col-md-2" style="width: 120px; background-color: rgb(230,4,45); color: white; border-radius: 100px 100px; "><a href="<?php  echo base_url()?>iniciar"><span class="resaltar">Ingresar</span></a></li>
+                                <li class=" col-xs-6 col-sm-2 col-md-2" style=" background-color: rgb(38,154,57); color: white; border-radius: 100px 100px; "><a href="<?php  echo base_url()?>iniciar"><span class="resaltar">Ingresar</span></a></li>
 				
 				  </ul>
 				

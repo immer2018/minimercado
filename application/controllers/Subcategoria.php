@@ -1,5 +1,6 @@
 <?php
-
+ini_set("display_errors", FALSE);
+defined('BASEPATH') OR exit('No direct script access allowed');
 class SubCategoria extends CI_Controller {
 
     //put your code here

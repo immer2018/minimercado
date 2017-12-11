@@ -1,4 +1,6 @@
 <?php
+ini_set("display_errors", FALSE);
+defined('BASEPATH') OR exit('No direct script access allowed');
 class BuscadorController extends CI_Controller {
     public function __construct() {
         parent::__construct();

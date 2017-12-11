@@ -1,4 +1,6 @@
 <?php
+ini_set("display_errors", FALSE);
+defined('BASEPATH') OR exit('No direct script access allowed');
 class Reestablecer extends CI_Controller {
     //put your code here
     public function __construct() {

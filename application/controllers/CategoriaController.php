@@ -1,5 +1,6 @@
 <?php
-
+ini_set("display_errors", FALSE);
+defined('BASEPATH') OR exit('No direct script access allowed');
 class CategoriaController extends CI_Controller {
 
     public function __construct() {
@@ -102,9 +103,9 @@ class CategoriaController extends CI_Controller {
             $this->table->set_heading('Nombre Categoria', 'Detalles', 'Acciones Subcategoria', 'Acciones Categoria');
             foreach ($listadoCategoria as $categoria_item) {
                 $this->table->add_row(
-                        $categoria_item->NombreCategoria, $categoria_item->detalles, 'Mira <a class="text-orange" href=' . base_url() . 'CategoriaController/Ver/' . $categoria_item->idCategoria . ' ><i class="fa fa-eye" onmouseover="Subcategoria"></i></a>' .
-                        ' Agrega <a class="text-blue"  href=' . base_url() . 'CategoriaController/Agregar/' . $categoria_item->idCategoria . '><i class="fa fa-plus"></i></a>', 'Modificar <a class="teal-text" href=' . base_url() . 'CategoriaController/editar/' . $categoria_item->idCategoria . '><i class="fa fa-pencil "></i></a>'
-                        . nbs(3) . 'Inactivar <a class="text-red" href=' . base_url() . 'CategoriaController/modal/' . $categoria_item->idCategoria . '><i class="fa fa-times" ></i></a>');
+                        $categoria_item->NombreCategoria, $categoria_item->detalles, '<a class="text-orange" title="Ver" href=' . base_url() . 'CategoriaController/Ver/' . $categoria_item->idCategoria . ' ><i class="fa fa-eye" onmouseover="Subcategoria"></i></a>'
+                        . nbs(3) .' <a class="text-blue" title="Agregar" href=' . base_url() . 'CategoriaController/Agregar/' . $categoria_item->idCategoria . '><i class="fa fa-plus"></i></a>', '<a class="teal-text" title="modificar" href=' . base_url() . 'CategoriaController/editar/' . $categoria_item->idCategoria . '><i class="fa fa-pencil "></i></a>'
+                        . nbs(3) . ' <a class="text-red" title="Eliminar" href=' . base_url() . 'CategoriaController/modal/' . $categoria_item->idCategoria . '><i class="fa fa-times" ></i></a>');
             }
             $this->jquery_pagination->initialize($config);
             //cargamos la paginación con los links
@@ -168,10 +169,10 @@ class CategoriaController extends CI_Controller {
             $this->table->set_template($template);
             $this->table->set_heading('Nombre Categoria', 'Detalles', 'Acciones Subcategoria', 'Acciones Categoria');
             foreach ($listadoCategoria as $categoria_item) {
-                $this->table->add_row(
-                        strip_tags($categoria_item->NombreCategoria), $categoria_item->detalles, 'Mira <a class="orange-text" href=' . base_url() . 'CategoriaController/Ver/' . $categoria_item->idCategoria . ' ><i class="fa fa-eye" onmouseover="Subcategoria"></i></a>' .
-                        ' Agrega <a class="blue-text"  href=' . base_url() . 'CategoriaController/Agregar/' . $categoria_item->idCategoria . '><i class="fa fa-plus"></i></a>', 'Modificar <a class="teal-text" href=' . base_url() . 'Categoria/editar/' . $categoria_item->idCategoria . '><i class="fa fa-pencil "></i></a>'
-                        . nbs(3) . 'Inactivar <a class="red-text" href=' . base_url() . 'CategoriaController/modal/' . $categoria_item->idCategoria . '><i class="fa fa-times" ></i></a>');
+               $this->table->add_row(
+                        $categoria_item->NombreCategoria, $categoria_item->detalles, '<a class="text-orange" title="Ver" href=' . base_url() . 'CategoriaController/Ver/' . $categoria_item->idCategoria . ' ><i class="fa fa-eye" onmouseover="Subcategoria"></i></a>'
+                        .' <a class="text-blue" title="Agregar" href=' . base_url() . 'CategoriaController/Agregar/' . $categoria_item->idCategoria . '><i class="fa fa-plus"></i></a>', '<a class="teal-text" title="modificar" href=' . base_url() . 'CategoriaController/editar/' . $categoria_item->idCategoria . '><i class="fa fa-pencil "></i></a>'
+                        . nbs(3) . ' <a class="text-red" title="Eliminar" href=' . base_url() . 'CategoriaController/modal/' . $categoria_item->idCategoria . '><i class="fa fa-times" ></i></a>');
             }
             $this->jquery_pagination->initialize($config);
             //cargamos la paginación con los links
@@ -205,10 +206,9 @@ class CategoriaController extends CI_Controller {
         $this->form_validation->set_message('required', 'El campo %s es obligatorio');
         $this->form_validation->set_message('is_unique', 'El campo %s ya existe');
         if ($this->form_validation->run() === FALSE) {
-            $this->load->view('templates/admin/header', $data);
+            
             $this->load->view('templates/admin/menu', $data);
-            $this->load->view('Categoria/INCategoria');
-            $this->load->view('templates/admin/footer');
+           
         } else {
             $almacenar = $this->categoria_model->ingressarCategoria();
             if ($almacenar == true) {
@@ -216,10 +216,7 @@ class CategoriaController extends CI_Controller {
             } else {
                 $this->session->set_flashdata('incorrecto', 'La categoria no se pudo crear correctamente');
             }
-            $this->load->view('templates/admin/header', $data);
-            $this->load->view('templates/admin/menu', $data);
-            $this->load->view('Categoria/INCategoria', $data);
-            $this->load->view('templates/admin/footer');
+             redirect(base_url() . 'categoria');
         }
     }
 

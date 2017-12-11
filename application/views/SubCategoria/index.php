@@ -11,8 +11,8 @@
                     <table  id="dataTables-example" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>Nombre SubCategoria</th>
-                                <th>Detalle SubCategoria</th>
+                                <th>Nombre SubCategoría</th>
+                                <th>Detalle SubCategoría</th>
                             </tr>  
                         </thead>
                         <tbody>

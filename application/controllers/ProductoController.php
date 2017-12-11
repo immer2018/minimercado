@@ -1,5 +1,6 @@
 <?php
-
+ini_set("display_errors", FALSE);
+defined('BASEPATH') OR exit('No direct script access allowed');
 class ProductoController extends CI_Controller {
 
     public function __construct() {
@@ -11,8 +12,7 @@ class ProductoController extends CI_Controller {
         if ($this->session->userdata('rol') == NULL) {
             redirect(base_url() . 'iniciar');
         }
-            $notificaciontotal = $this->inventario_model->cantidadVencidos()->cantVencido+$this->inventario_model->cantidadXVencerse()->cuantovencerse+$this->inventario_model->cantidadAgotados()->agotados+$this->inventario_model->cantidadXAgotarse()->cuantoAgotarse;   
-
+        $notificaciontotal = $this->inventario_model->cantidadVencidos()->cantVencido + $this->inventario_model->cantidadXVencerse()->cuantovencerse + $this->inventario_model->cantidadAgotados()->agotados + $this->inventario_model->cantidadXAgotarse()->cuantoAgotarse;
 
 //        $idProducto = $this->uri->segment(3);
         //creamos la salida del html a la vista con ob_get_contents
@@ -25,7 +25,6 @@ class ProductoController extends CI_Controller {
         //y así poder mostrar tanto los links como la tabla
         // datos para inactivar un producto
 //        $idProducto = $this->uri->segment(3);
-        
 
         $data = array(
             'div1' => " <div id='pagina'>",
@@ -76,7 +75,7 @@ class ProductoController extends CI_Controller {
         $config['next_tag_close'] = '</li>';
         $config['last_tag_open'] = '<li>';
         $config['last_tag_close'] = '</li>';
-        $config['cur_tag_open'] = '<li class="active"><a href="#" class="btn btn-orange">';
+        $config['cur_tag_open'] = '<li class="active"><a href="#" class="btn bg-orange">';
         $config['cur_tag_close'] = '</a></li>';
         $config['num_tag_open'] = '<li>';
         $config['num_tag_close'] = '</li>';
@@ -128,7 +127,7 @@ class ProductoController extends CI_Controller {
                         $this->jquery_pagination->create_links();
                 echo $html;
             } else {
-                echo "<p class='lead'>No hay productos</p>";
+                echo "<p>No hay productos</p>";
             }
         } else {
             if ($listadoProducto) {
@@ -142,8 +141,8 @@ class ProductoController extends CI_Controller {
                         $productos_item['Existencias'] = "<span class='badge label-info'>" . $productos_item['Existencias'] . "</span>";
                     }
                     $this->table->add_row(
-                            $productos_item['NombreProducto'], $productos_item['DescripcionProducto'], $productos_item['minimoStock'], $productos_item['MaximoStock'], $productos_item['Existencias'], $productos_item['NombreSubcategoria'], $productos_item['NombreCategoria'], 'Modificar <a class="teal-text" href=' . base_url() . 'ProductoController/editar/' . $productos_item['idProducto'] . '><i class="fa fa-pencil "></i></a>'
-                            . nbs(3) . 'Inactivar <a class="text-red" href=' . base_url() . 'ProductoController/modal/' . $productos_item['idProducto'] . '><i class="fa fa-times" ></i></a>');
+                            $productos_item['NombreProducto'], $productos_item['DescripcionProducto'], $productos_item['minimoStock'], $productos_item['MaximoStock'], $productos_item['Existencias'], $productos_item['NombreSubcategoria'], $productos_item['NombreCategoria'], '<a class="teal-text" title="Modificar" href=' . base_url() . 'ProductoController/editar/' . $productos_item['idProducto'] . '><i class="fa fa-pencil "></i></a>'
+                            . nbs(3) . '<a class="text-red" title="Inactivar" href=' . base_url() . 'ProductoController/modal/' . $productos_item['idProducto'] . '><i class="fa fa-times" ></i></a>');
                 }
                 $this->jquery_pagination->initialize($config);
                 //cargamos la paginación con los links
@@ -165,8 +164,8 @@ class ProductoController extends CI_Controller {
             redirect(base_url() . 'iniciar');
         }
         $data = array(
-            'page_title' => 'nuevo producto',
-            'perfil' => $this->usuario_model->consultarPerfil($this->session->userdata('idUsuario'))->NombreUsuario,
+            'titulo' => 'nuevo producto',
+            'perfil' => $this->usuario_model->consultarPerfil($this->session->userdata('idUsuario')),
             'subcategorias' => $this->subcategoria_model->obtenerSubCategorias(),
             'totalNotificaciones' => $notificaciontotal,
             'vencidos' => $this->inventario_model->cantidadVencidos()->cantVencido,
@@ -201,29 +200,36 @@ class ProductoController extends CI_Controller {
         $this->form_validation->set_message('max_length', 'El %s  debe tener 13 numeros');
         $this->form_validation->set_message('greater_than', 'el maximo stock debe ser mayor que el minimo stock');
         $this->form_validation->set_message('less_than', 'las existencias deben ser menores que el maximo stock ');
+        
         if ($this->form_validation->run() === FALSE) {
-            $this->parser->parse('templates/producto_layout', $data);
+            $this->load->view('templates/admin/header', $data);
+        $this->load->view('templates/admin/menu', $data);
+        $this->load->view('productos/nuevoProducto', $data);
+        $this->load->view('templates/admin/footer');
         } else {
             // defino variables para ingresar los datos 
-            $descrip = strip_tags(trim($this->input->post('txtDescripcion')));
-            $nomPro = strip_tags(trim($this->input->post('txtNombProd')));
-            $CodBarras = $this->input->post('txtCodBarras');
-            $minStock = $this->input->post('txtMinimo');
-            $maximoStock = $this->input->post('txtMaximo');
-            $existencias = $this->input->post('txtExits');
+            $descrip = $this->security->xss_clean(strip_tags(trim($this->input->post('txtDescripcion'))));
+            $nomPro = $this->security->xss_clean(strip_tags(trim($this->input->post('txtNombProd'))));
+            $CodBarras =$this->security->xss_clean( $this->input->post('txtCodBarras'));
+            $minStock = $this->security->xss_clean($this->input->post('txtMinimo'));
+            $maximoStock =$this->security->xss_clean( $this->input->post('txtMaximo'));
+            $existencias =$this->security->xss_clean( $this->input->post('txtExits'));
             $subcat_id = $this->input->post('subcategoria');
-           
+
             $lote = $this->input->post('txtLote');
             $fechavenc = date("Ymd", strtotime($this->input->post('fvencimiento')));
             // llamo al metodo para agregar productos y el detalle 
-            $ingresoNuevoProducto = $this->productos_model->registrarProductoDetalle($descrip, $nomPro, $CodBarras, $minStock, $maximoStock, $existencias, $subcat_id,$lote, $fechavenc);
+            $ingresoNuevoProducto = $this->productos_model->registrarProductoDetalle($descrip, $nomPro, $CodBarras, $minStock, $maximoStock, $existencias, $subcat_id, $lote, $fechavenc);
             if ($ingresoNuevoProducto) {
                 //Sesion de una sola ejecución
                 $this->session->set_flashdata('correcto', 'producto creado correctamente');
             } else {
                 $this->session->set_flashdata('incorrecto', 'El producto no  esta  creado');
             }
-            $this->parser->parse('templates/producto_layout', $data);
+            $this->load->view('templates/admin/header', $data);
+            $this->load->view('templates/admin/menu', $data);
+            $this->load->view('productos/nuevoProducto', $data);
+            $this->load->view('templates/admin/footer');
         }
     }
 

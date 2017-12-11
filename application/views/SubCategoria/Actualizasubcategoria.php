@@ -16,7 +16,7 @@
 
 <div class="row">
     <div class="col-lg-1"></div>
-    <div class="col-9 col-md-9">
+    <div class="col-7 col-md-7">
      <div class="box">
         <div class="box-header">
             <h3 class="box-title box-success"><span class="resaltar"><i class="fa fa-eye"></i> Actualizar SubCategorìa</span></h3>
@@ -24,21 +24,21 @@
         <div class="box-body">
           
                 <div class="input-group">
-                    <span class="input-group-addon"> <i class="fa fa-folder-o "></i> Subcategoria  </span>  
+                    <span class="input-group-addon text-gray"> <i class="fa fa-folder-o "></i> Subcategoria  </span>  
                     <input type="text" id="form1" class="form-control" name="NombreSubcategoria" value="<?php echo $NombreSub; ?>">
                 </div>
                 <div style="height: 3vh"></div>
                 <div class="input-group">
-                    <span class="input-group-addon"> <i class="fa fa-pencil-square-o"></i> Detalle de Subcategoria </span> 
-                    <textarea rows="10" cols="90"  name="detalSubCategoria"><?php echo $DetallesSub; ?></textarea> 
+                    <span class="input-group-addon text-gray"> <i class="fa fa-pencil-square-o"></i> Detalle de Subcategoria </span> 
+                    <textarea rows="2" class="form-control"  name="detalSubCategoria"><?php echo $DetallesSub; ?></textarea> 
 
                 </div>
 
            
         </div>
         <div class="box-footer">
-            <div class="input-group">
-                <button type="submit" class="btn bg-orange " name="btnEditaSubcategoria"><i class='fa fa-edit'> Actualizar Subcategoria</i></button>
+            <div >
+                <button type="submit" class="btn bg-orange pull-right" name="btnEditaSubcategoria"><i class='fa fa-edit'> Actualizar Subcategoria</i></button>
             </div>
         </div>
 

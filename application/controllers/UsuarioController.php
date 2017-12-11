@@ -1,6 +1,7 @@
 <?php
 
 ini_set("display_errors", FALSE);
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 class UsuarioController extends CI_Controller {
 
@@ -20,13 +21,6 @@ class UsuarioController extends CI_Controller {
         $this->load->view('templates/Team');
         $this->load->view('templates/Boxes');
         $this->load->view('templates/contacto');
-//        $this->load->view('templates/Boxes2');
-        //      $this->load->view('templates/Pricing');
-        //      $this->load->view('templates/Pricing2');
-        //     $this->load->view('templates/Services');
-        //     $this->load->view('templates/Testimonial');
-        //     $this->load->view('templates/Works');
-        //  $this->load->view('templates/index');
         $this->load->view('templates/footer');
     }
 

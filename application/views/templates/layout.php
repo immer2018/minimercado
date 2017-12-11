@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
     <head>
         <meta charset="utf-8">
@@ -29,7 +30,23 @@
         <link rel="stylesheet" href="<?= base_url() ?>public/bower_components/bootstrap-daterangepicker/daterangepicker.css">
         <!-- bootstrap wysihtml5 - text editor -->
         <link rel="stylesheet" href="<?= base_url() ?>public/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+        <style>
+            .resaltar{
+                color: rgb(255,255,250);  
+            }
 
+            #tsm{height: 1px;
+                 width: 2px;      }
+            #categoria1:active{
+                color: rgb(0,153,51);
+
+            }
+            .categoria1:hover{
+                background-color:rgb(220,102,51);
+                color: rgb(255,251,255);
+
+            }
+        </style>
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -40,12 +57,13 @@
         <!-- Google Font -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     </head>
+
     <body class="hold-transition  sidebar-mini">
         <div class="wrapper">
 
             <header class="main-header">
                 <!-- Logo -->
-                <a href="<?= base_url() ?>welcome" class="logo">
+                <a href="<?= base_url() ?>Welcome" class="logo">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
                     <span class="logo-mini">M</span>
                     <!-- logo for regular state and mobile devices -->
@@ -61,10 +79,10 @@
                     <div class="navbar-custom-menu">
                         <ul class="nav navbar-nav">
                             <!-- Messages: style can be found in dropdown.less-->
-                       
+
                             <!-- Notifications: style can be found in dropdown.less -->
                             <li class="dropdown notifications-menu">
-                                <a href="<?= base_url() ?>public/#" class="dropdown-toggle" data-toggle="dropdown">
+                                <a href="<?= base_url() ?>#" class="dropdown-toggle" data-toggle="dropdown">
                                     <i class="fa fa-bell-o"></i>
                                     <span class="label label-warning">{totalNotificaciones}</span>
                                 </a>
@@ -78,7 +96,7 @@
                                                     <i class="fa fa- fa-calendar-times-o text-gray"></i> <span class="label label-default">{vencidos}</span> productos vencidos
                                                 </a>
                                             </li>
-                                           
+
                                             <li>
                                                 <a href="<?= base_url() ?>#">
                                                     <i class="fa fa-calendar-minus-o text-info"></i> <span class="label label-info">{porVencerse}</span> productos por vencerse
@@ -99,10 +117,10 @@
                                     <li class="footer"><a href="<?= base_url() ?>#"></a></li>
                                 </ul>
                             </li>
-                     
+
                             <!-- User Account: style can be found in dropdown.less -->
                             <li class="dropdown user user-menu">
-                                <a href="<?= base_url() ?>public/#" class="dropdown-toggle" data-toggle="dropdown">
+                                <a href="<?= base_url() ?>#" class="dropdown-toggle" data-toggle="dropdown">
                                     <img src="<?= base_url() ?>public/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
                                     <span class="hidden-xs">{perfil}</span>
                                 </a>
@@ -176,16 +194,16 @@
                     <!-- /.search form -->
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu" data-widget="tree">
-                    
+
                         <li class="treeview">
-                            <a href="<?= base_url() ?>public/#">
+                            <a href="<?= base_url() ?>#">
                                 <i class="fa fa-briefcase text-orange"></i> <span>Categoría</span>
                                 <span class="pull-right-container">
                                     <i class="fa fa-angle-left pull-right"></i>
                                 </span>
                             </a>
                             <ul class="treeview-menu skin-green">
-                                <li class="active"><a href="<?php echo site_url('categoria/crear'); ?>"><i class="fa fa-plus text-orange"></i> Nueva</a></li>
+                                <li class="active" id="categoria1" ><a data-toggle="modal" data-target="#basicExample" href="#"><i class="fa fa-plus text-orange"></i> Nueva</a></li>
                                 <li><a href="<?php echo site_url('categoria'); ?>"><i class="fa fa-search text-orange"></i> Listar</a></li>
                             </ul>
                         </li>
@@ -219,7 +237,7 @@
                             </ul>
                         </li>
                         <li class="treeview">
-                            <a href="<?= base_url() ?>public/#">
+                            <a href="<?= base_url() ?>#">
                                 <i class="fa fa-folder text-orange"></i>
                                 <span>Inventario</span>
                                 <span class="pull-right-container">
@@ -277,58 +295,123 @@
                 </section>
                 <!-- /.sidebar -->
             </aside>
+            <!--modal categoria-->
+            <div class="modal fade" id="basicExample" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <!--Content-->
+                    <div class="modal-content">
+                        <!--Header-->
+                        <div class="modal-header box-header">
+                            <h4 class="modal-title box-header w-100  resaltar" id="myModalLabel"><i class="fa fa-archive"></i><span> Nueva Categoria </span>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button></h4>
 
-            <!-- Content Wrapper. Contains page content -->
-            <div class="content-wrapper">
-                <h5 class="label-default text-center">{heading}</h5>
-                {contenido}
+                        </div>
+                        <!--Body-->
+                        <div class="modal-body">
+
+                            <div class="flex-center">
+                                <div style="height: 5vh"></div>
+                                <?php if ($this->session->flashdata('correcto')): ?>
+                                    <div class="alert alert-success" role="alert" /> <?= $this->session->flashdata('correcto') ?> </div>  
+                            <?php endif; ?>
+                            <?php if ($this->session->flashdata('incorrecto')): ?>
+                                <div class="alert alert-success" role="alert" /> <?= $this->session->flashdata('incorrecto') ?> </div>  
+                        <?php endif; ?>
+                    </div>
+                    <?php echo form_open('CategoriaController/InCategoria'); ?>
+                    <div class="flex-center">
+                        <?php if (validation_errors()): ?>
+                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <?php echo validation_errors(); ?> 
+                            </div>
+                        <?php endif; ?>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-9 col-md-9">
+
+                            <div class="input-group">
+                                <span class="input-group-addon"> <i class="fa fa-suitcase text-gray1" aria-hidden="true" ></i></span>
+                                <input type="text" id="form1" class="form-control" name="NombreCategoria" required="required" placeholder="Categoría">
+                            </div>
+                            <br>
+                            <div class="input-group">
+                                <span class="input-group-addon"> <i class="fa fa-pencil text-gray1 " aria-hidden="true" ></i></span>
+                                <textarea id="detallecat" class="form-control" name="txtdetalle"  placeholder="Detalle de Categoría"required="required"></textarea>
+                            </div>
+
+                            <div class="box-footer">
+                                <button type="submit" class="btn bg-orange" name="btnNuevaCategoria" > <i class='fa fa-save'> </i> Crear Categoria</button>
+                                <button type="button" class="btn bg-gray-active" data-dismiss="modal">Cerrar</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Footer-->
+            <div class="modal-footer">
+
+                <?php echo form_close(); ?>
+
 
             </div>
-            <footer class="main-footer">
-                <div class="pull-right hidden-xs">
-                    <b>Version</b> 1.0
-                </div>
-                <strong>Copyright &copy; 2017 <a href="">Immerpro</a>.</strong> All rights
-                reserved.
-            </footer>
-            <!-- ./wrapper -->
+        </div>
+        <!--/.Content-->
+    </div>
+    <!--fin modal categoria-->
 
-            <!-- jQuery 3 -->
-            <script src="<?= base_url() ?>public/bower_components/jquery/dist/jquery.min.js"></script>
-            <!-- jQuery UI 1.11.4 -->
-            <script src="<?= base_url() ?>public/bower_components/jquery-ui/jquery-ui.min.js"></script>
-            <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-            <script>
-                $.widget.bridge('uibutton', $.ui.button);
-            </script>
-            <!-- Bootstrap 3.3.7 -->
-            <script src="<?= base_url() ?>public/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-            <!-- Morris.js charts -->
-            <script src="<?= base_url() ?>public/bower_components/raphael/raphael.min.js"></script>
-            <script src="<?= base_url() ?>public/bower_components/morris.js/morris.min.js"></script>
-            <!-- Sparkline -->
-            <script src="<?= base_url() ?>public/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
-            <!-- jvectormap -->
-            <script src="<?= base_url() ?>public/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-            <script src="<?= base_url() ?>public/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-            <!-- jQuery Knob Chart -->
-            <script src="<?= base_url() ?>public/bower_components/jquery-knob/dist/jquery.knob.min.js"></script>
-            <!-- daterangepicker -->
-            <script src="<?= base_url() ?>public/bower_components/moment/min/moment.min.js"></script>
-            <script src="<?= base_url() ?>public/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
-            <!-- datepicker -->
-            <script src="<?= base_url() ?>public/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
-            <!-- Bootstrap WYSIHTML5 -->
-            <script src="<?= base_url() ?>public/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
-            <!-- Slimscroll -->
-            <script src="<?= base_url() ?>public/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-            <!-- FastClick -->
-            <script src="<?= base_url() ?>public/bower_components/fastclick/lib/fastclick.js"></script>
-            <!-- AdminLTE App -->
-            <script src="<?= base_url() ?>public/dist/js/adminlte.min.js"></script>
-            <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-            <script src="<?= base_url() ?>public/dist/js/pages/dashboard.js"></script>
-            <!-- AdminLTE for demo purposes -->
-            <script src="<?= base_url() ?>public/dist/js/demo.js"></script>
-    </body>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <h5 class="label-default text-center">{heading}</h5>
+        {contenido}
+
+    </div>
+    <footer class="main-footer">
+        <strong>Copyright &copy; 2017 <a href="">Immerpro</a>.</strong> Todos los derechos reservados.
+    </footer>
+    <!-- ./wrapper -->
+
+    <!-- jQuery 3 -->
+    <script src="<?= base_url() ?>public/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="<?= base_url() ?>public/bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+        $.widget.bridge('uibutton', $.ui.button);
+    </script>
+    <!-- Bootstrap 3.3.7 -->
+    <script src="<?= base_url() ?>public/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Morris.js charts -->
+    <script src="<?= base_url() ?>public/bower_components/raphael/raphael.min.js"></script>
+    <script src="<?= base_url() ?>public/bower_components/morris.js/morris.min.js"></script>
+    <!-- Sparkline -->
+    <script src="<?= base_url() ?>public/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+    <!-- jvectormap -->
+    <script src="<?= base_url() ?>public/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="<?= base_url() ?>public/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <!-- jQuery Knob Chart -->
+    <script src="<?= base_url() ?>public/bower_components/jquery-knob/dist/jquery.knob.min.js"></script>
+    <!-- daterangepicker -->
+    <script src="<?= base_url() ?>public/bower_components/moment/min/moment.min.js"></script>
+    <script src="<?= base_url() ?>public/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <!-- datepicker -->
+    <script src="<?= base_url() ?>public/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <!-- Bootstrap WYSIHTML5 -->
+    <script src="<?= base_url() ?>public/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+    <!-- Slimscroll -->
+    <script src="<?= base_url() ?>public/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <!-- FastClick -->
+    <script src="<?= base_url() ?>public/bower_components/fastclick/lib/fastclick.js"></script>
+    <!-- AdminLTE App -->
+    <script src="<?= base_url() ?>public/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="<?= base_url() ?>public/dist/js/pages/dashboard.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="<?= base_url() ?>public/dist/js/demo.js"></script>
+</body>
 </html>

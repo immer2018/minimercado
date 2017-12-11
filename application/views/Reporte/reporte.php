@@ -1,25 +1,25 @@
 <div class="container">
-    <h1 class="h1-responsive text-center text-orange">Reporte de Inventario</h1>
-    <div style="height: 4vh"></div>
-
     <section class="content">
-        <?php if ($this->session->flashdata('excelok')): ?>
-            <div class="alert alert-success alert-dismissible" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <?php echo $this->session->flashdata('excelok'); ?> 
-            </div>
-        <?php endif; ?>
-        <?php echo form_open('ReporteController/generarReporte'); ?>
-        <div class="row">
-            <div class="col-md-5" style="margin-left: 350px;">
-                <div class="box box-success ">
-                    <div class="box-header with-border">
-                        <h3 class="box-title resaltar"></h3>
+        <div style="height: 5vh"></div>
+        <h5 class=" text-orange text-center"></h5>
+        <div class="col-lg-11">
+            <?php if ($this->session->flashdata('excelok')): ?>
+                <div class="alert alert-success alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <?php echo $this->session->flashdata('excelok'); ?> 
+                </div>
+            <?php endif; ?>
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    <h3 class="box-title"><span class="resaltar"> <i class="fa fa-plus-square-o"></i> Reporte</span></h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
+                                title="Collapse">
+                            <i class="fa fa-minus"></i></button>
                     </div>
-
-                    <!-- /.box-header -->
-                    <div class="box-body">
-
+                </div>
+                <div class="box-body">
+                    <div class="col-md-6">
                         <div class="input-group">
                             <span class="input-group-addon"> <i class="fa fa-calendar-plus-o text-gray" aria-hidden="true" ></i></span>
                             <?php
@@ -33,15 +33,15 @@
                             );
                             echo form_input($data);
                             ?>
-                        </div>
-                        <script type="text/javascript">
-                            $(function () {
-                                $("#inicial").datepicker({
-                                    changeMonth: true,
-                                    changeYear: true
+                            <script type="text/javascript">
+                                $(function () {
+                                    $("#inicial").datepicker({
+                                        changeMonth: true,
+                                        changeYear: true
+                                    });
                                 });
-                            });
-                        </script>
+                            </script>
+                        </div>
                         <br>
                         <div class="input-group">
                             <span class="input-group-addon"> <i class="fa fa-calendar-plus-o text-gray" aria-hidden="true" ></i></span>
@@ -58,16 +58,21 @@
                             );
                             echo form_input($data);
                             ?>
-                        </div>
-                        <script type="text/javascript">
-                            $(function () {
-                                $("#final").datepicker({
-                                    changeMonth: true,
-                                    changeYear: true
+                            <script type="text/javascript">
+                                $(function () {
+                                    $("#final").datepicker({
+                                        changeMonth: true,
+                                        changeYear: true
+                                    });
                                 });
-                            });
-                        </script>
+                            </script>
+                        </div>
                         <br>
+
+                    </div>
+                    <div class="col-md-6">
+
+
                         <div class="input-group">
                             <span class="input-group-addon"> <i class="fa fa-briefcase text-gray" aria-hidden="true" ></i></span>
 
@@ -82,8 +87,8 @@
                             ?>
                         </div>
                         <br>
-
                         <div class="input-group">
+
                             <span class="input-group-addon"> <i class="fa fa-briefcase text-gray" aria-hidden="true" ></i></span>
 
                             <?php
@@ -96,23 +101,19 @@
                             echo form_dropdown('ddExportar', $options, '', ['class' => 'form-control', 'data-parsley-required' => 'true']);
                             ?>
 
-
                         </div>
-                       
                     </div>
-                     <div class="box-footer">
-                            <div class="input-group">
-                                <button type="submit" style="margin-left: 150px;" class="btn bg-orange" name="btnGenerarReporte"> <i class=' fa fa-download'>  Generar Reporte</i></button>
-
-                            </div> 
-                        </div>
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer">
+                    <button type="submit"  class="btn bg-orange pull-right" name="btnGenerarReporte"> <i class=' fa fa-download'>  Generar Reporte</i></button>
 
                 </div>
-
+                <!-- /.box-footer-->
             </div>
-
-        </div>
-       
-        <?php echo form_close(); ?>
-    </section>
+            <!-- /.box --> 
+            <?php echo form_close(); ?>
+        </div> 
+</div>
+</section>
 </div>

@@ -24,26 +24,27 @@
             </div>
             <div class="col-8 col-md-8">
                 <div class="input-group">
-                    <span class="input-group-addon"> <i class="fa fa-suitcase text-green" aria-hidden="true" ></i> Categoría</span>
+                    <span class="input-group-addon text-gray"> <i class="fa fa-suitcase " aria-hidden="true" ></i> Categoría</span>
                
                     <input type="text" id="form1" class="form-control" name="NombreCategoria" required="required" value="<?= $Nombre ?>">
                 </div>
                 <div style="height: 1vh"></div>
                 <div class="input-group">
-                    <span class="input-group-addon"> <i class="fa fa-pencil text-green " aria-hidden="true" ></i> Detalle de Categoría</span>
+                    <span class="input-group-addon text-gray"> <i class="fa fa-pencil  " aria-hidden="true" ></i> Detalle de Categoría</span>
                   
-                    <textarea id="detallecat" class="form-control" name="txtdetalle" required="required"><?= $Detalles ?></textarea>
+                    <textarea id="detallecat" rows="4"  class="form-control" name="txtdetalle" required="required"><?= $Detalles ?></textarea>
                     
                 </div>
             </div>
-            <?php echo form_close(); ?>
+            
         </div>
                 <div class="box-footer">
-                    <div class="btn-group m-2">
-                        <button type="submit" class="btn bg-orange " name="btnActCategoria" > <i class='fa fa fa-edit'> </i>Actualizar Categorìa</button>
+                    <div>
+                        <button type="submit" class="btn bg-orange pull-right " name="btnActCategoria" > <i class='fa fa fa-edit'> </i>Actualizar Categorìa</button>
                     </div>
                 </div>
     </div>
+    <?php echo form_close(); ?>
     <div class="col-9 ">
         <span class="alert-danger close"><?php echo validation_errors(); ?></span> 
     </div>
